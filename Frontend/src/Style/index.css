@@ -11,3 +11,9 @@ body{
   padding: 0;
   background-color: var(--color-primary);
 }
+@font-face {
+  font-family: 'BlackerScript';
+  src: url('../assets/fonts/Johnie\ Blackerson.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

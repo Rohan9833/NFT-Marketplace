@@ -16,9 +16,10 @@
 }
 
 .nav-logo {
-  font-size: 24px;
+  font-size: 35px;
   font-weight: 800;
   color: var(--color-dark);
+  font-family: 'BlackerScript', serif;
 }
 
 .nav-links {

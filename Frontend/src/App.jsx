@@ -8,10 +8,24 @@ function App() {
     <></>
     <></>
       <Navbar/>
-      <Footer/>
-      <Footer/>
-      <Footer/>
-      <Footer/>
+            <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+      <h1>HWllo</h1>
+
+      <h1>HWllo</h1>
 
     </>
   );
