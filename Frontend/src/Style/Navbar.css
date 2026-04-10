@@ -2,7 +2,7 @@
 
 
 .nav-container {
-  background-color: #ffffff; /* Background clean white rakha hai */
+  background-color: var(--color-secondary); /* Background clean white rakha hai */
   padding: 15px 40px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,6 +21,7 @@
   font-weight: 800;
   color: var(--color-dark);
   letter-spacing: 1px;
+  /* font-family: ; */
 }
 
 .nav-links {
@@ -74,7 +75,7 @@
 .btn-login {
   padding: 10px 30px;
   background-color: var(--color-dark);
-  color: white;
+  /* color: white; */
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
