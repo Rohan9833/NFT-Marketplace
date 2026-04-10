@@ -1,17 +1,16 @@
-/* Color Palette variables */
 
 
 .nav-container {
-  background-color: var(--color-secondary); /* Background clean white rakha hai */
-  padding: 15px 40px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-secondary);
+  padding: 15px 5%;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .nav-wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -20,69 +19,102 @@
   font-size: 24px;
   font-weight: 800;
   color: var(--color-dark);
-  letter-spacing: 1px;
-  /* font-family: ; */
 }
 
 .nav-links {
   display: flex;
   gap: 30px;
-  align-items: center;
 }
 
 .nav-item {
   color: var(--color-dark);
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
+/* Hover par tere palette ka light color use kiya hai */
 .nav-item:hover {
-  color: var(--color-primary);
+  color: #0000004c;
 }
 
-.dropdown {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.dropdown-icon {
-  font-size: 10px;
-  color: #666;
-}
-
-.nav-auth {
+.nav-auth-desktop {
   display: flex;
   gap: 15px;
-  align-items: center;
 }
+
+.nav-auth-mobile { display: none; }
 
 .btn-signup {
   padding: 8px 25px;
   border: 2px solid var(--color-dark);
   border-radius: 50px;
+  color: var(--color-dark);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .btn-signup:hover {
-  background-color: var(--color-light);
-  border-color: var(--color-primary);
+  background-color: var(--color-primary); /* Palette color */
+  color: var(--color-light);
 }
 
 .btn-login {
   padding: 10px 30px;
   background-color: var(--color-dark);
-  /* color: white; */
+  color: var(--color-light);
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.3s ease;
 }
 
 .btn-login:hover {
-  opacity: 0.9;
-  background-color: var(--color-primary); /* Palette color on hover */
+  background-color: var(--color-primary); /* Palette color */
+}
+
+/* --- Responsive & Hamburger --- */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-dark);
+  transition: 0.3s;
+}
+
+@media (max-width: 850px) {
+  .hamburger { display: flex; }
+  
+  .nav-auth-desktop { display: none; }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-secondary);
+    flex-direction: column;
+    padding: 20px 0;
+    display: none;
+    border-top: 1px solid var(--color-primary);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-auth-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* Hamburger X animation */
+  .hamburger.active .line:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+  .hamburger.active .line:nth-child(2) { opacity: 0; }
+  .hamburger.active .line:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 }
