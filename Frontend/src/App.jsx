@@ -11,7 +11,7 @@ function App() {
       <Footer/>
       <Footer/>
       <Footer/>
-
+      <Navbar/>
     </>
   );
 }
