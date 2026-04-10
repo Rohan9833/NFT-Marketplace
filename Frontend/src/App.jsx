@@ -5,28 +5,13 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <>
-    <></>
-    <></>
+    
       <Navbar/>
-            <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-      <h1>HWllo</h1>
-
-      <h1>HWllo</h1>
-
+      <Footer/>
+      <Footer/>
+      <Footer/>
+      <Footer/>
+      <Navbar/>
     </>
   );
 }
