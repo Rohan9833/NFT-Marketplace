@@ -6,7 +6,7 @@ function Navbar() {
       <div className="nav-container">
         <div className="nav-wrapper">
           {/* Logo Section */}
-          <div className="nav-logo">LOGO</div>
+          <div className="nav-logo">Mintora</div>
 
           {/* Navigation Links */}
           <div className="nav-links">

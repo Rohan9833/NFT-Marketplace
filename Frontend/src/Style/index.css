@@ -4,3 +4,9 @@
   --color-light: #F3E4C9;
   --color-accent: #BABF94;
 }
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-primary);
+}
