@@ -4,11 +4,10 @@ export default function Footer() {
   return (
     <footer className="footer">
 
-      {/* Top Section */}
       <div className="footer-top">
 
         <div className="footer-logo">
-          LOGO
+          MINTORA
         </div>
 
         <ul className="footer-nav">
@@ -21,10 +20,8 @@ export default function Footer() {
 
       </div>
 
-      {/* Divider */}
       <hr className="footer-divider" />
 
-      {/* Bottom Section */}
       <div className="footer-bottom">
 
         <p className="footer-copy">

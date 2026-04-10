@@ -4,8 +4,6 @@
   font-family: system-ui, sans-serif;
 }
 
-/* TOP SECTION */
-
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -36,7 +34,6 @@
   color: var(--color-light);
 }
 
-/* DIVIDER */
 
 .footer-divider {
   margin: 25px 0;
@@ -44,8 +41,6 @@
   height: 1px;
   background: var(--color-accent);
 }
-
-/* BOTTOM SECTION */
 
 .footer-bottom {
   display: flex;
@@ -74,8 +69,6 @@
 .footer-socials i:hover {
   color: var(--color-light);
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 768px) {
 
