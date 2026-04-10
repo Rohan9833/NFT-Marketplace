@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 
 import './App.css'
@@ -114,6 +115,12 @@ function App() {
       <section id="spacer"></section>
     </>
   )
+=======
+import HomePage from "./HomePage";
+
+function App() {
+  return <HomePage />;
+>>>>>>> 86642b2 (created home page)
 }
 
-export default App
+export default App;
