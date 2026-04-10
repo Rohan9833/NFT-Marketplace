@@ -8,11 +8,7 @@ function App() {
     
       <Navbar/>
       <Footer/>
-      <Footer/>
-      <Footer/>
-      <Footer/>
-      <Navbar/>
-    </>
+        </>
   );
 }
 
