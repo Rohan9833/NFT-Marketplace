@@ -1,0 +1,282 @@
+
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-root {
+  background-color: var(--color-primary);
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Section */
+.top-filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Important for Mobile */
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.filter-left {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; 
+  padding-bottom: 5px;
+  max-width: 100%;
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.filter-left::-webkit-scrollbar { display: none; }
+
+.nav-item-hero {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: var(--color-dark);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-item-hero:hover{
+    background-color: rgba(255, 255, 255, 0.377);;
+}
+
+.active-pill {
+  background: var(--color-dark);
+  color: white;
+}
+/* 
+.toggle-container {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.toggle-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.active-toggle {
+  background: white;
+} */
+ /* --- Toggle Styles (Updated) --- */
+.toggle-container {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  border-radius: 12px;
+  display: flex;
+  position: relative;
+  width: fit-content;
+  align-self: center; /* Desktop alignment */
+}
+
+.toggle-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-dark);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Jab button active ho */
+.toggle-btn.active-toggle {
+  background-color: #ffffff; /* White block behind active text */
+  color: var(--color-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for non-active buttons */
+.toggle-btn:not(.active-toggle):hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile pe toggle ko center karne ke liye */
+@media (max-width: 600px) {
+  .filter-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .toggle-container {
+    width: 100%; /* Mobile pe full width toggle */
+    max-width: 300px;
+  }
+  
+  .toggle-btn {
+    flex: 1; /* Dono buttons barabar width ke honge */
+    text-align: center;
+  }
+}
+
+/* Main Layout Grid */
+.main-content-grid {
+  display: flex; /* Switched to Flex for better control */
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Hero Card - Left Side */
+.hero-card-container {
+  background: var(--color-dark);
+  border-radius: 24px;
+  overflow: hidden;
+  color: white;
+  flex: 1; /* Takes remaining space */
+}
+
+.hero-flex {
+  display: flex;
+  height: 100%;
+  min-height: 450px;
+}
+
+.hero-image-box {
+  width: 40%;
+  min-width: 200px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text-box {
+  width: 60%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 8px;
+}
+
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns on Desktop */
+  gap: 10px;
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.stat-heading {
+  font-size: 9px;
+  color: var(--color-secondary);
+  display: block;
+}
+
+.stat-data {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Sidebar Ranking - Right Side */
+.sidebar-ranking {
+  background: var(--color-light);
+  border-radius: 24px;
+  padding: 20px;
+  width: 380px; /* Fixed on desktop */
+  flex-shrink: 0;
+}
+
+.ranking-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--color-secondary);
+  margin-bottom: 15px;
+}
+
+.ranking-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.ranking-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ranking-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+.ranking-price-box { text-align: right; }
+.pct-up { color: #10b981; font-size: 12px; }
+.pct-down { color: #ef4444; font-size: 12px; }
+
+/* --- MEDIA QUERIES --- */
+
+/* For Tablets (1100px) - Stack Sidebar */
+@media (max-width: 1100px) {
+  .main-content-grid {
+    flex-direction: column;
+  }
+  .sidebar-ranking {
+    width: 100%; /* Sidebar becomes full width */
+  }
+}
+
+/* For Mobile (768px) - Stack Hero Content */
+@media (max-width: 768px) {
+  .hero-flex {
+    flex-direction: column;
+    height: auto;
+  }
+  .hero-image-box, .hero-text-box {
+    width: 100%;
+  }
+  .hero-image-box {
+    height: 250px;
+  }
+  .hero-stats-row {
+    grid-template-columns: 1fr 1fr; /* 2 stats per row on mobile */
+    gap: 15px;
+  }
+}
+
+/* Smallest Devices (480px) */
+@media (max-width: 480px) {
+  .dashboard-root { padding: 10px; }
+  .top-filter-bar { flex-direction: column; align-items: stretch; }
+  .hero-text-box { padding: 20px; }
+  .hero-title { font-size: 1.4rem; }
+}

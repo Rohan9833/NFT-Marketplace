@@ -24,7 +24,7 @@ const Navbar = () => {
             Services 
             {/* <span className="dropdown-icon">▼</span> */}
           </div>
-          <div className="nav-item">Blog</div>
+          <div className="nav-item">NFT</div>
           <div className="nav-item">About</div>
           
           <div className="nav-auth-mobile">
