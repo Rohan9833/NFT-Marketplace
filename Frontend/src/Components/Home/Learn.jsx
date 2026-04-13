@@ -11,9 +11,15 @@ const FeaturedTokens = () => {
                 window.location.href = "/learnnft"
                 break;
             case 2:
-                window.location.href = "/learnnft"
+                window.location.href = "/learnsmartcontract"
                 break;
             case 3:
+                window.location.href = "/learngasfee"
+                break;
+            case 4:
+                window.location.href = "/learnmintingnft"
+                break;
+            case 5:
                 window.location.href = "/learnnft"
                 break;
 
