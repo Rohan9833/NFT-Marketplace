@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Style/Login.css";
+import { Link } from "react-router-dom";
 
 export default function MintoraLogin() {
   const [loginData, setLoginData] = useState({
@@ -62,9 +63,9 @@ export default function MintoraLogin() {
 
         <p className="mintoraLoginSignupRedirectText">
           Don’t have an account?
-          <span className="mintoraLoginSignupLinkText">
+          <Link to="/signup" className="mintoraLoginSignupLinkText">
             Sign Up
-          </span>
+          </Link>
         </p>
 
       </div>

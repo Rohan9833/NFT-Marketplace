@@ -1,6 +1,6 @@
 import "../Style/Navbar.css";
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,35 +8,35 @@ const Navbar = () => {
   return (
     <div className="nav-container">
       <div className="nav-wrapper">
-        <div className="nav-logo">MINTORA</div>
 
-        {/* Hamburger Icon */}
-        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+        <Link to="/" className="nav-logo">MINTORA</Link>
+
+        <div
+          className={`hamburger ${isOpen ? "active" : ""}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <span className="line"></span>
           <span className="line"></span>
           <span className="line"></span>
         </div>
 
-        {/* Menu Items */}
-        <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <div className="nav-item">Home</div>
-          <div className="nav-item dropdown">
-            Services 
-            {/* <span className="dropdown-icon">▼</span> */}
-          </div>
-          <div className="nav-item">Blog</div>
-          <div className="nav-item">About</div>
-          
+        <div className={`nav-links ${isOpen ? "open" : ""}`}>
+          <Link to="/" className="nav-item">Home</Link>
+          <div className="nav-item">Services</div>
+          <Link to="/learnnft" className="nav-item">NFT</Link>
+          <Link to="/about" className="nav-item">About</Link>
+
           <div className="nav-auth-mobile">
-            <div className="btn-signup">Sign Up</div>
-            <div className="btn-login">Login</div>
+            <Link to="/signup" className="btn-signup">Sign Up</Link>
+            <Link to="/login" className="btn-login">Login</Link>
           </div>
         </div>
 
         <div className="nav-auth-desktop">
-          <div className="btn-signup">Sign Up</div>
-          <div className="btn-login">Login</div>
+          <Link to="/signup" className="btn-signup">Sign Up</Link>
+          <Link to="/login" className="btn-login">Login</Link>
         </div>
+
       </div>
     </div>
   );

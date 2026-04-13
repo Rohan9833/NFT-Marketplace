@@ -81,6 +81,11 @@
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .line {
   width: 25px;
   height: 3px;

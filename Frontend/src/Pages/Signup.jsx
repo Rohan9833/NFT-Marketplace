@@ -1,6 +1,7 @@
 // MintoraSignup.jsx
 import { useState } from "react";
 import "../Style/Signup.css";
+import { Link } from "react-router-dom";
 
 export default function MintoraSignup() {
   const [formData, setFormData] = useState({
@@ -82,9 +83,9 @@ export default function MintoraSignup() {
 
         <p className="mintoraSignupLoginRedirectText">
           Already have an account?
-          <span className="mintoraSignupLoginLinkText">
+          <Link to="/login" className="mintoraSignupLoginLinkText">
             Login
-          </span>
+          </Link>
         </p>
       </div>
     </div>
