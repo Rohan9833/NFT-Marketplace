@@ -1,0 +1,86 @@
+.mintoraLoginMainWrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+  background-color: #e6d5c3;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.mintoraLoginCardContainer {
+  width: 100%;
+  max-width: 420px;
+  background: #f5eee6;
+  padding: 40px 32px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.mintoraLoginHeadingText {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0d1b2a;
+  margin-bottom: 8px;
+}
+
+.mintoraLoginSubText {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 28px;
+}
+
+.mintoraLoginFormWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mintoraLoginInputField {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.mintoraLoginInputField:focus {
+  outline: none;
+  border-color: #5a3e2b;
+  box-shadow: 0 0 0 2px rgba(90, 62, 43, 0.15);
+}
+
+.mintoraLoginSubmitButton {
+  margin-top: 10px;
+  padding: 13px;
+  background-color: #5a3e2b;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.mintoraLoginSubmitButton:hover {
+  background-color: #3e2a1d;
+}
+
+.mintoraLoginSignupRedirectText {
+  margin-top: 22px;
+  font-size: 14px;
+  color: #666;
+}
+
+.mintoraLoginSignupLinkText {
+  margin-left: 6px;
+  color: #0d1b2a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mintoraLoginSignupLinkText:hover {
+  text-decoration: underline;
+}
