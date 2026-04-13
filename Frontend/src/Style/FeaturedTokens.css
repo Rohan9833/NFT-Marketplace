@@ -41,8 +41,9 @@
 /* Scrollable Grid Layout */
 #fnt-token-grid-layout {
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   padding-bottom: 15px;
   scrollbar-width: none; /* Firefox */
 }
