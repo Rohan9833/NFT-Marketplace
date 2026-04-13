@@ -2,6 +2,26 @@ import React from "react";
 import "../../style/Learn.css";
 
 const FeaturedTokens = () => {
+
+    function ArticlePage(id){
+        console.log(id);
+
+        switch(id){
+            case 1:
+                window.location.href = "/learnnft"
+                break;
+            case 2:
+                window.location.href = "/learnnft"
+                break;
+            case 3:
+                window.location.href = "/learnnft"
+                break;
+
+        }
+    }
+
+
+
   const tokens = [
     {
       id: 1,
@@ -30,6 +50,12 @@ const FeaturedTokens = () => {
 
       img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
     },
+    {
+      id: 5,
+      title: "What is NFT",
+      desc: "Digital ownership explained",
+      img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
+    },
   ];
 
   return (
@@ -41,7 +67,7 @@ const FeaturedTokens = () => {
 
       <div id="fnt-token-grid-layout">
         {tokens.map((token) => (
-          <div key={token.id} className="fnt-token-card-wrapper">
+          <div onClick={()=>{ArticlePage(token.id)}} key={token.id} className="fnt-token-card-wrapper">
             {/* Image */}
             <div className="fnt-card-media-context">
               <img

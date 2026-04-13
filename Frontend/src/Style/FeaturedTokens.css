@@ -48,10 +48,12 @@
   overflow-x: auto;
   overflow-y: hidden;
 
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
 
   scroll-behavior: smooth;
   scrollbar-width: none;
+
+  padding-bottom: 70px;
 }
 
 #fnt-token-grid-layout::-webkit-scrollbar {
@@ -167,6 +169,30 @@
 
 .fnt-state-down {
   color: var(--fnt-negative);
+}
+/* Text ko image ke niche lane ke liye space create */
+.fnt-card-text-area {
+  position: absolute;
+  bottom: 0px;   
+  left: 0;
+  width: 100%;
+
+  padding: 8px 4px;
+}
+
+/* Title */
+.fnt-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-light);
+}
+
+/* Small description */
+.fnt-card-desc {
+  font-size: 12px;
+  margin: 2px 0 0 0;
+  color: var(--color-light);
 }
 
 /* Responsive Media Queries */
