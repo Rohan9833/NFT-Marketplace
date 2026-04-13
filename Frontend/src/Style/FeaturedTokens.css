@@ -16,7 +16,8 @@
 }
 
 #fnt-featured-section-container {
-  background-color: var(--color-dark);
+  /* background-color: var(--color-dark); */
+  
   padding: 40px 20px;
   color: var(--fnt-text-main);
   font-family: 'Inter', sans-serif;
@@ -33,7 +34,7 @@
 }
 
 #fnt-sub-heading {
-  color: var(--fnt-text-muted);
+  color: #eaf3ff;
   font-size: 14px;
   margin: 0;
 }
