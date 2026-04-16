@@ -11,6 +11,7 @@ import Login from "./Pages/Login";
 import Learnnft from "./Pages/Learnnft";
 import Home from "./Pages/Home";
 import MintingGasfee from "./Pages/MintingNft";
+import Createnft from "./Pages/Createnft";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/learnsmartcontract" element={<SmartContractLearn/>} />
         <Route path="/learngasfee" element={<GasFee/>} />
         <Route path="/learnmintingnft" element={<MintingGasfee/>}/>
+        <Route path="/createnft" element={<Createnft/>} />
 
 
       </Routes>
