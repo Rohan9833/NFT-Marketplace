@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
           <Link to="/" className="nav-item">Home</Link>
           <div className="nav-item">Services</div>
-          <Link to="/learnnft" className="nav-item">NFT</Link>
+          <Link to="/createnft" className="nav-item">NFT</Link>
           <Link to="/about" className="nav-item">About</Link>
 
           <div className="nav-auth-mobile">

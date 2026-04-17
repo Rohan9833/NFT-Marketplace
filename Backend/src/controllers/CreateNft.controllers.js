@@ -1,7 +1,10 @@
 const { pinataUpload } = require("../service/IPFS.service.js");
 
-async function CreateNft(params) {
+async function CreateNft(req,res) {
+  const file = req.file
   const result = await pinataUpload(file);
-  const url = result;
-//   console.log(url);
+  console.log(result);
 }
+
+
+module.exports = {CreateNft}
