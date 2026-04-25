@@ -95,6 +95,17 @@
   border-color: #8d6e63;
 }
 
+.createNFTLayout_amount_input{
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d7ccc8;
+  font-size: 15px;
+  outline: none;
+}
+.createNFTLayout_amount_input:focus{
+  border-color: #8d6e63;
+}
 
 /* Button Center */
 

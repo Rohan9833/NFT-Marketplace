@@ -2,10 +2,9 @@ const axios = require("axios");
 const FormData = require("form-data");
 const fs = require("fs");
 
-const pinataUpload = async (file) => {
-  console.log("KEY:", process.env.PINATA_Api_KEY);
-  console.log("SECRET:", process.env.Pinata_Secret);
+const pinataUpload = async (file, NFTname, NFTdescription) => {
   const data = new FormData();
+  let folderhash;
 
   data.append("file", file.buffer, {
     filename: file.originalname,
@@ -25,13 +24,13 @@ const pinataUpload = async (file) => {
       },
     },
   );
-  // console.log("IPFS Hash:", res );
+
   const imageHash = res.data.IpfsHash;
 
   const uploadMetadata = async (imageHash) => {
     const metadata = {
-      name: "your NFT",
-      description: "This is my first NFT",
+      name: NFTname,
+      description: NFTdescription,
       image: `ipfs://${imageHash}`,
     };
 
@@ -46,15 +45,15 @@ const pinataUpload = async (file) => {
         },
       },
     );
-
-    console.log(res.data.IpfsHash);
-    return(res.data.IpfsHash)
+    folderhash = res.data.IpfsHash;
+    console.log("ipds wali file", res.data.IpfsHash);
+    return folderhash;
   };
 
-  uploadMetadata(imageHash);
+  await uploadMetadata(imageHash);
+  console.log(uploadMetadata);
 
-  return uploadMetadata;
-
+  return folderhash;
 };
 
 module.exports = { pinataUpload };
