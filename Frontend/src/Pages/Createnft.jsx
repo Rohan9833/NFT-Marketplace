@@ -57,7 +57,6 @@ const Createnft = () => {
       // ─── Step 1: Backend pe Pinata upload karo ───
       const formdata = new FormData();
       formdata.append("image", selectedFile);
-      
 
       const res = await axios.post(
         "http://localhost:3000/api/nft/createnft",
@@ -92,7 +91,8 @@ const Createnft = () => {
       alert("Error: " + error.message);
     } finally {
       setLoading(false);
-      ClaimNFT()
+      setTimeout(() => {}, 5000);
+      ClaimNFT();
     }
   }
 
@@ -174,7 +174,9 @@ const Createnft = () => {
             disabled={loading}
           >
             {loading ? "Minting..." : "Create NFT"}
-          </button><br/><br/>
+          </button>
+          <br />
+          <br />
           <button
             className="createNFTLayout_create_button"
             onClick={ClaimNFT}

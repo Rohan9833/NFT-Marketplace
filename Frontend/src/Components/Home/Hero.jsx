@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../../Style/Hero.css";
 
 import { createThirdwebClient, getContract } from "thirdweb";
@@ -17,21 +17,6 @@ const contract = getContract({
 });
 
 const Hero = () => {
-  // Toggle state manage karne ke liye
-  const [activeTab, setActiveTab] = useState("NFTs");
-  const [activeCategory, setActiveCategory] = useState("All");
-  async function checkNFTs() {
-    const supply = await totalSupply({
-      contract,
-    });
-    const nfts = await getNFTs({
-      contract,
-    });
-
-    console.log("Total NFTs:", supply.toString());
-    console.log(nfts);
-  }
-  checkNFTs();
   const collections = [
     {
       name: "CryptoPunks",
@@ -64,6 +49,25 @@ const Hero = () => {
       positive: true,
     },
   ];
+  // Toggle state manage karne ke liye
+  const [activeTab, setActiveTab] = useState("NFTs");
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [nfts, setnfts] = useState(collections);
+  useEffect(() => {
+    async function checkNFTs() {
+      const supply = await totalSupply({
+        contract,
+      });
+      const nfts = await getNFTs({
+        contract,
+      });
+      setnfts(nfts);
+
+      console.log("Total NFTs:", supply.toString());
+      console.log(nfts);
+    }
+    checkNFTs();
+  }, []);
 
   return (
     <div className="dashboard-root">
@@ -147,7 +151,7 @@ const Hero = () => {
           </div>
 
           <div className="ranking-list">
-            {collections.map((item, idx) => (
+            {nfts.map((item, idx) => (
               <div key={idx} className="ranking-row">
                 <div className="ranking-info">
                   <div className="ranking-avatar"></div>

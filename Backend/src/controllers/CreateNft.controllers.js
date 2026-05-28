@@ -2,11 +2,11 @@ const { pinataUpload } = require("../service/IPFS.service.js");
 
 async function CreateNft(req, res) {
   const file = req.file;
-  // const NFTname = req.body.name;
-  // const NFTdescription = req.body.description;
-  // const userAddress = req.body.userAddress;
-  // const _amount = parseInt(req.body.amount);
-  // const _data = "0x";
+  const NFTname = req.body.name;
+  const NFTdescription = req.body.description;
+  const userAddress = req.body.userAddress;
+  const _amount = parseInt(req.body.amount);
+  const _data = "0x";
 
   // creating meta data and image for NFT
   // console.log(NFTname, NFTdescription);
