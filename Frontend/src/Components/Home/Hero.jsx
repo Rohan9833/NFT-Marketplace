@@ -4,6 +4,7 @@ import "../../Style/Hero.css";
 import { createThirdwebClient, getContract } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
 import { totalSupply } from "thirdweb/extensions/erc721";
+import { getNFTs } from "thirdweb/extensions/erc721";
 
 const client = createThirdwebClient({
   clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
@@ -23,8 +24,12 @@ const Hero = () => {
     const supply = await totalSupply({
       contract,
     });
+    const nfts = await getNFTs({
+      contract,
+    });
 
     console.log("Total NFTs:", supply.toString());
+    console.log(nfts);
   }
   checkNFTs();
   const collections = [
