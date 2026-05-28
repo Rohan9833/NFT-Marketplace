@@ -1,11 +1,32 @@
 import React, { useState } from "react";
 import "../../Style/Hero.css";
 
+import { createThirdwebClient, getContract } from "thirdweb";
+import { sepolia } from "thirdweb/chains";
+import { totalSupply } from "thirdweb/extensions/erc721";
+
+const client = createThirdwebClient({
+  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
+});
+
+const contract = getContract({
+  client,
+  chain: sepolia,
+  address: import.meta.env.VITE_CONTRACT_ADDRESS,
+});
+
 const Hero = () => {
   // Toggle state manage karne ke liye
   const [activeTab, setActiveTab] = useState("NFTs");
   const [activeCategory, setActiveCategory] = useState("All");
+  async function checkNFTs() {
+    const supply = await totalSupply({
+      contract,
+    });
 
+    console.log("Total NFTs:", supply.toString());
+  }
+  checkNFTs();
   const collections = [
     {
       name: "CryptoPunks",

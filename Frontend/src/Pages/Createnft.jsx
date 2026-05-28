@@ -30,7 +30,7 @@ const Createnft = () => {
 
   // ✅ Connected wallet ka address milta hai
   const account = useActiveAccount();
-
+  //kaunsa image selected hai uska kaam ho raha hai yaha
   const handleImageSelect = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
@@ -57,8 +57,7 @@ const Createnft = () => {
       // ─── Step 1: Backend pe Pinata upload karo ───
       const formdata = new FormData();
       formdata.append("image", selectedFile);
-      formdata.append("name", NFTname);
-      formdata.append("description", NFTdescription);
+      
 
       const res = await axios.post(
         "http://localhost:3000/api/nft/createnft",
@@ -176,13 +175,13 @@ const Createnft = () => {
           >
             {loading ? "Minting..." : "Create NFT"}
           </button><br/><br/>
-          {/* <button
+          <button
             className="createNFTLayout_create_button"
             onClick={ClaimNFT}
             disabled={loading}
           >
             {loading ? "Claiming..." : "Claim NFT"}
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

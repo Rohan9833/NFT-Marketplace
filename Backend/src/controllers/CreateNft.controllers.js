@@ -2,16 +2,18 @@ const { pinataUpload } = require("../service/IPFS.service.js");
 
 async function CreateNft(req, res) {
   const file = req.file;
-  const NFTname = req.body.name;
-  const NFTdescription = req.body.description;
-  const userAddress = req.body.userAddress;
-  const _amount = parseInt(req.body.amount);
-  const _data = "0x";
+  // const NFTname = req.body.name;
+  // const NFTdescription = req.body.description;
+  // const userAddress = req.body.userAddress;
+  // const _amount = parseInt(req.body.amount);
+  // const _data = "0x";
 
   // creating meta data and image for NFT
-  console.log(NFTname, NFTdescription);
+  // console.log(NFTname, NFTdescription);
   const IpfsHash = await pinataUpload(file, NFTname, NFTdescription); //calling ipfs file
-  const _baseURIForTokens = "https://ipfs.io/ipfs/" + IpfsHash + "/";
+
+  
+  const _baseURIForTokens = "ipfs://" + IpfsHash + "/";
   console.log("file ka base url", _baseURIForTokens);
 
   console.log({
