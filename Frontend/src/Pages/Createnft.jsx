@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Style/Createnft.css";
 import axios from "axios";
 
 // ThirdWeb imports
-import { createThirdwebClient, getContract } from "thirdweb";
+import { createThirdwebClient,getContract } from "thirdweb";
+import { getOwnedNFTs } from "thirdweb/extensions/erc721";
 import { sepolia } from "thirdweb/chains";
 import { useActiveAccount, ConnectButton } from "thirdweb/react";
-import { claimTo, lazyMint } from "thirdweb/extensions/erc721";
-import { sendTransaction } from "thirdweb";
+// import { claimTo, lazyMint } from "thirdweb/extensions/erc721";
+// import { sendTransaction } from "thirdweb";
 
 // ✅ Client banao — ek baar banao, component ke bahar
 const client = createThirdwebClient({
@@ -27,6 +28,9 @@ const Createnft = () => {
   const [loading, setLoading] = useState(false);
   const [NFTname, setName] = useState("");
   const [NFTdescription, setDescription] = useState("");
+  const [ownedNFTs, setOwnedNFTs] = useState([]);
+  const [nftLoading, setNftLoading] = useState(false);
+
   const account = useActiveAccount();
   //kaunsa image selected hai uska kaam ho raha hai yaha
   const handleImageSelect = (event) => {
@@ -51,8 +55,8 @@ const Createnft = () => {
       "http://localhost:3000/api/nft/createnft",
       formdata,
     );
-
-    setLoading(false)
+    console.log(res);
+    setLoading(false);
   }
 
   // async function MintNFT() {
@@ -140,6 +144,28 @@ const Createnft = () => {
   //     setLoading(false);
   //   }
   // }
+  async function loadMyNFTs() {
+    try {
+      if (!account) return;
+
+      setNftLoading(true);
+
+      const nfts = await getOwnedNFTs({
+        contract,
+        owner: account.address,
+      });
+
+      setOwnedNFTs(nfts);
+    } catch (error) {
+      console.log("NFT Load Error:", error);
+    } finally {
+      setNftLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    loadMyNFTs();
+  }, [account]);
 
   return (
     <div className="createNFTLayout_main_container">
@@ -200,6 +226,52 @@ const Createnft = () => {
           >
             {loading ? "Claiming..." : "Claim NFT"}
           </button>
+
+          <hr style={{ margin: "40px 0" }} />
+
+          <h2>My NFTs ({ownedNFTs.length})</h2>
+
+          {nftLoading ? (
+            <p>Loading NFTs...</p>
+          ) : ownedNFTs.length === 0 ? (
+            <p>No NFTs Found</p>
+          ) : (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill,minmax(250px,1fr))",
+                gap: "20px",
+                marginTop: "20px",
+              }}
+            >
+              {ownedNFTs.map((nft) => (
+                <div
+                  key={nft.id}
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "10px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <img
+                    src={nft.metadata.image?.replace(
+                      "ipfs://",
+                      "https://ipfs.io/ipfs/",
+                    )}
+                    alt={nft.metadata.name}
+                    style={{
+                      width: "100%",
+                      height: "200px",
+                      objectFit: "cover",
+                    }}
+                  />
+
+                  <h3>{nft.metadata.name}</h3>
+                  <p>{nft.metadata.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
