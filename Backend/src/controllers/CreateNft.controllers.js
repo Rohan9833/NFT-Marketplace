@@ -10,7 +10,7 @@ const { privateKeyToAccount } = require("thirdweb/wallets");
 async function CreateNft(req, res) {
   const file = req.file;
   const NFTname = req.body.NFTname;
-  const NFTdescription = req.body.description;
+  const NFTdescription = req.body.NFTdescription;
   const userAddress = req.body.userAddress;
   // const account = process.env.Admin_Wallet_Address;
 

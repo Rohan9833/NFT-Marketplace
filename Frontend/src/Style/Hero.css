@@ -207,6 +207,11 @@
   padding: 20px;
   width: 380px; /* Fixed on desktop */
   flex-shrink: 0;
+  height: 34rem;
+  overflow-y: auto;
+}
+.sidebar-ranking::-webkit-scrollbar {
+  display: none;
 }
 
 .ranking-header {
