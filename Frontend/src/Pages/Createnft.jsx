@@ -24,11 +24,9 @@ const contract = getContract({
 const Createnft = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [NFTname, setName] = useState("");
   const [NFTdescription, setDescription] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  // ✅ Connected wallet ka address milta hai
   const account = useActiveAccount();
   //kaunsa image selected hai uska kaam ho raha hai yaha
   const handleImageSelect = (event) => {
@@ -39,91 +37,109 @@ const Createnft = () => {
     }
   };
 
-  async function MintNFT() {
-    try {
-      // ✅ Check karo wallet connected hai ya nahi
-      if (!account) {
-        alert("Pehle wallet connect karo!");
-        return;
-      }
+  async function Createnftinner() {
+    setLoading(true);
+    // ✅ Connected wallet ka address milta hai
 
-      if (!selectedFile) {
-        alert("Image select karo!");
-        return;
-      }
+    const formdata = new FormData();
+    formdata.append("image", selectedFile);
+    formdata.append("NFTname", NFTname);
+    formdata.append("NFTdescription", NFTdescription);
+    formdata.append("userAddress", account.address);
 
-      setLoading(true);
+    const res = await axios.post(
+      "http://localhost:3000/api/nft/createnft",
+      formdata,
+    );
 
-      // ─── Step 1: Backend pe Pinata upload karo ───
-      const formdata = new FormData();
-      formdata.append("image", selectedFile);
-
-      const res = await axios.post(
-        "http://localhost:3000/api/nft/createnft",
-        formdata,
-      );
-      console.log(res.data._baseURIForTokens);
-      const baseURI = res.data._baseURIForTokens; // ← backend se baseURI aaya
-      console.log("BaseURI:", baseURI);
-
-      // ─── Step 2: Frontend se LazyMint karo ───
-      const transaction = lazyMint({
-        contract,
-        nfts: [
-          {
-            name: NFTname,
-            description: NFTdescription,
-            image: baseURI,
-          },
-        ],
-      });
-
-      // ─── Step 3: MetaMask popup aayega — user sign karega ───
-      const result = await sendTransaction({
-        transaction,
-        account, // ← user ka wallet
-      });
-
-      console.log("NFT Minted!", result);
-      alert("NFT ban gaya! 🎉");
-    } catch (error) {
-      console.log("Error:", error.message);
-      alert("Error: " + error.message);
-    } finally {
-      setLoading(false);
-      setTimeout(() => {}, 5000);
-      ClaimNFT();
-    }
+    setLoading(false)
   }
 
-  async function ClaimNFT() {
-    try {
-      if (!account) {
-        alert("please connect your wallet");
-        return "Please connect account";
-      }
-      setLoading(true);
+  // async function MintNFT() {
+  //   try {
+  //     // ✅ Check karo wallet connected hai ya nahi
+  //     if (!account) {
+  //       alert("Pehle wallet connect karo!");
+  //       return;
+  //     }
 
-      const transaction = claimTo({
-        contract,
-        to: account.address,
-        quantity: 1n,
-      });
+  //     if (!selectedFile) {
+  //       alert("Image select karo!");
+  //       return;
+  //     }
 
-      const result = await sendTransaction({
-        transaction,
-        account,
-      });
+  //     setLoading(true);
 
-      console.log("NFT Claimed! 🎉", result);
-      alert("NFT claim ho gaya!");
-    } catch (error) {
-      console.error("Claim Error:", error.message);
-      alert("Error: " + error.message);
-    } finally {
-      setLoading(false);
-    }
-  }
+  //     // ─── Step 1: Backend pe Pinata upload karo ───
+  //     const formdata = new FormData();
+  //     formdata.append("image", selectedFile);
+
+  //     const res = await axios.post(
+  //       "http://localhost:3000/api/nft/createnft",
+  //       formdata,
+  //     );
+  //     console.log(res.data._baseURIForTokens);
+  //     const baseURI = res.data._baseURIForTokens; // ← backend se baseURI aaya
+  //     console.log("BaseURI:", baseURI);
+
+  //     // ─── Step 2: Frontend se LazyMint karo ───
+  //     const transaction = lazyMint({
+  //       contract,
+  //       nfts: [
+  //         {
+  //           name: NFTname,
+  //           description: NFTdescription,
+  //           image: baseURI,
+  //         },
+  //       ],
+  //     });
+
+  //     // ─── Step 3: MetaMask popup aayega — user sign karega ───
+  //     const result = await sendTransaction({
+  //       transaction,
+  //       account, // ← user ka wallet
+  //     });
+
+  //     console.log("NFT Minted!", result);
+  //     alert("NFT ban gaya! 🎉");
+  //   } catch (error) {
+  //     console.log("Error:", error.message);
+  //     alert("Error: " + error.message);
+  //   } finally {
+  //     setLoading(false);
+  //     setTimeout(() => {}, 5000);
+  //     ClaimNFT();
+  //   }
+  // }
+
+  // async function ClaimNFT() {
+  //   try {
+  //     if (!account) {
+  //       alert("please connect your wallet");
+  //       return "Please connect account";
+  //     }
+  //     setLoading(true);
+
+  //     const transaction = claimTo({
+  //       contract,
+  //       to: account.address,
+  //       quantity: 1n,
+  //     });
+
+  //     const result = await sendTransaction({
+  //       transaction,
+  //       account,
+  //     });
+
+  //     console.log("NFT Claimed! 🎉", result);
+  //     alert("NFT claim ho gaya!");
+  //   } catch (error) {
+  //     console.error("Claim Error:", error.message);
+  //     alert("Error: " + error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
 
   return (
     <div className="createNFTLayout_main_container">
@@ -170,7 +186,7 @@ const Createnft = () => {
         <div className="createNFTLayout_button_wrapper">
           <button
             className="createNFTLayout_create_button"
-            onClick={MintNFT}
+            onClick={Createnftinner}
             disabled={loading}
           >
             {loading ? "Minting..." : "Create NFT"}
@@ -179,7 +195,7 @@ const Createnft = () => {
           <br />
           <button
             className="createNFTLayout_create_button"
-            onClick={ClaimNFT}
+            // onClick={ClaimNFT}
             disabled={loading}
           >
             {loading ? "Claiming..." : "Claim NFT"}

@@ -9,8 +9,10 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
+    "ethers": "^6.16.0",
     "express": "^5.2.1",
     "multer": "^2.1.1",
-    "pinata": "^2.5.5"
+    "pinata": "^2.5.5",
+    "thirdweb": "^5.120.0"
   }
 }
