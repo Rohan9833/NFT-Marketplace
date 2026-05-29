@@ -1,7 +1,7 @@
 const { pinataUpload } = require("../service/IPFS.service.js");
 
 const { lazyMint } = require("thirdweb/extensions/erc721");
-const { sendTransaction } = require("thirdweb");
+const { sendTransaction, waitForReceipt } = require("thirdweb");
 const { createThirdwebClient, getContract } = require("thirdweb");
 const { sepolia } = require("thirdweb/chains");
 const { claimTo } = require("thirdweb/extensions/erc721");
@@ -81,11 +81,15 @@ const resultmint = await sendTransaction({
   account,
 });
   
-
+const receipt = await waitForReceipt({
+  client,
+  chain:sepolia,
+  transactionHash: resultmint.transactionHash,
+});
 
 console.log("NFT mint ho gaya",resultmint);
 
-setTimeout(() => {}, 10000);
+setTimeout(() => {}, 9000);
 
 const transactionclaim = claimTo({
   contract,
