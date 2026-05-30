@@ -7,6 +7,7 @@ const authenticationRoutes = require("./routes/authentication.routes.js");
 
 
 const app = express();
+app.use(express.json());
 
 app.use(cors({
   origin: 'http://localhost:5173', // React app ka URL
