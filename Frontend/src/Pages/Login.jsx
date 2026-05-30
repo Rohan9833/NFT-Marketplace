@@ -7,16 +7,16 @@ export default function MintoraLogin() {
     email: "",
     password: "",
   });
-
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", loginData);
   };
 
+
+  
   return (
     <div className="mintoraLoginMainWrapper">
       <div className="mintoraLoginCardContainer">
