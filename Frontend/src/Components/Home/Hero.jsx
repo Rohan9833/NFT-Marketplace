@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../../Style/Hero.css";
 
 import { createThirdwebClient, getContract } from "thirdweb";
@@ -147,24 +147,37 @@ const Hero = () => {
         <aside className="sidebar-ranking">
           <div className="ranking-header">
             <span>COLLECTION</span>
-            <span>FLOOR</span>
+            {/* <span>FLOOR</span> */}
           </div>
 
           <div className="ranking-list">
-            {nfts.map((item, idx) => (
-              <div key={idx} className="ranking-row">
-                <div className="ranking-info">
-                  <div className="ranking-avatar"></div>
-                  <span className="ranking-name">{item.name}</span>
+            {nfts
+              ?.slice()
+              .reverse()
+              .map((item, idx) => (
+                <div key={idx} className="ranking-row">
+                  <div className="ranking-info">
+                    <img height={55} width={55}
+                      src={item?.metadata?.image?.replace(
+                        "ipfs://",
+                        "https://ipfs.io/ipfs/",
+                      )}
+                      alt={item?.metadata?.name}
+                    />
+                    <span className="ranking-name">
+                      {item?.metadata?.name || "Loading..."}
+                    </span>
+                  </div>
+                  <div className="ranking-price-box">
+                    <span className="ranking-price">
+                      {item?.metadata?.description || "Loading..."}
+                    </span>
+                    {/* <span className={item.positive ? "pct-up" : "pct-down"}>
+                      {item.change}
+                    </span> */}
+                  </div>
                 </div>
-                <div className="ranking-price-box">
-                  <span className="ranking-price">{item.price}</span>
-                  <span className={item.positive ? "pct-up" : "pct-down"}>
-                    {item.change}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </aside>
       </div>

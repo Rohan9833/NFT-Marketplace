@@ -50,7 +50,7 @@ const Createnft = () => {
     formdata.append("NFTname", NFTname);
     formdata.append("NFTdescription", NFTdescription);
     formdata.append("userAddress", account.address);
-
+    // console.log("frontend 1",NFTdescription)
     const res = await axios.post(
       "http://localhost:3000/api/nft/createnft",
       formdata,
