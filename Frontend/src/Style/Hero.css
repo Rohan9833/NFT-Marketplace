@@ -8,7 +8,7 @@
 }
 
 .dashboard-root {
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
   min-height: 100vh;
   padding: 20px;
   font-family: 'Segoe UI', Roboto, sans-serif;
