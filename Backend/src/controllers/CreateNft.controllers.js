@@ -89,7 +89,7 @@ const receipt = await waitForReceipt({
 
 console.log("NFT mint ho gaya",resultmint);
 
-setTimeout(() => {}, 9000);
+
 
 const transactionclaim = claimTo({
   contract,
