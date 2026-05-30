@@ -3,7 +3,7 @@ import "../Style/Createnft.css";
 import axios from "axios";
 
 // ThirdWeb imports
-import { createThirdwebClient,getContract } from "thirdweb";
+import { createThirdwebClient, getContract } from "thirdweb";
 import { getOwnedNFTs } from "thirdweb/extensions/erc721";
 import { sepolia } from "thirdweb/chains";
 import { useActiveAccount, ConnectButton } from "thirdweb/react";
@@ -219,66 +219,63 @@ const Createnft = () => {
           </button>
           <br />
           <br />
-          <button
+          {/* <button
             className="createNFTLayout_create_button"
-            // onClick={ClaimNFT}
+            onClick={ClaimNFT}
             disabled={loading}
           >
             {loading ? "Claiming..." : "Claim NFT"}
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="myNFTSection">
+        <div className="nftHeader">
+          <button
+            onClick={() =>
+              document
+                .getElementById("nftSlider")
+                .scrollBy({ left: -300, behavior: "smooth" })
+            }
+          >
+            ◀
+          </button>
 
-  <div className="nftHeader">
-    <button
-      onClick={() =>
-        document
-          .getElementById("nftSlider")
-          .scrollBy({ left: -300, behavior: "smooth" })
-      }
-    >
-      ◀
-    </button>
+          <h2>My NFTs ({ownedNFTs.length})</h2>
 
-    <h2>My NFTs ({ownedNFTs.length})</h2>
-
-    <button
-      onClick={() =>
-        document
-          .getElementById("nftSlider")
-          .scrollBy({ left: 300, behavior: "smooth" })
-      }
-    >
-      ▶
-    </button>
-  </div>
-
-  {nftLoading ? (
-    <p>Loading NFTs...</p>
-  ) : ownedNFTs.length === 0 ? (
-    <p>No NFTs Found</p>
-  ) : (
-    <div id="nftSlider" className="nftSlider">
-      {ownedNFTs.map((nft) => (
-        <div className="nftCard" key={nft.id}>
-          <img
-            src={nft.metadata.image?.replace(
-              "ipfs://",
-              "https://ipfs.io/ipfs/"
-            )}
-            alt={nft.metadata.name}
-          />
-
-          <h3>{nft.metadata.name}</h3>
+          <button
+            onClick={() =>
+              document
+                .getElementById("nftSlider")
+                .scrollBy({ left: 300, behavior: "smooth" })
+            }
+          >
+            ▶
+          </button>
         </div>
-      ))}
-    </div>
-  )}
-    </div>
-    </div>
 
-    
+        {nftLoading ? (
+          <p>Loading NFTs...</p>
+        ) : ownedNFTs.length === 0 ? (
+          <p>No NFTs Found</p>
+        ) : (
+          <div id="nftSlider" className="nftSlider">
+            {[...ownedNFTs].reverse().map((nft) => (
+              <div className="nftCard" key={nft.id}>
+                <img
+                  src={nft.metadata.image?.replace(
+                    "ipfs://",
+                    "https://ipfs.io/ipfs/",
+                  )}
+                  alt={nft.metadata.name}
+                />
+
+                <h3>{nft.metadata.name}</h3>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
