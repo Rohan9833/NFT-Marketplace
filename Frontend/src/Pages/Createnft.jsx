@@ -226,55 +226,59 @@ const Createnft = () => {
           >
             {loading ? "Claiming..." : "Claim NFT"}
           </button>
-
-          <hr style={{ margin: "40px 0" }} />
-
-          <h2>My NFTs ({ownedNFTs.length})</h2>
-
-          {nftLoading ? (
-            <p>Loading NFTs...</p>
-          ) : ownedNFTs.length === 0 ? (
-            <p>No NFTs Found</p>
-          ) : (
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill,minmax(250px,1fr))",
-                gap: "20px",
-                marginTop: "20px",
-              }}
-            >
-              {ownedNFTs.map((nft) => (
-                <div
-                  key={nft.id}
-                  style={{
-                    border: "1px solid #ddd",
-                    padding: "10px",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <img
-                    src={nft.metadata.image?.replace(
-                      "ipfs://",
-                      "https://ipfs.io/ipfs/",
-                    )}
-                    alt={nft.metadata.name}
-                    style={{
-                      width: "100%",
-                      height: "200px",
-                      objectFit: "cover",
-                    }}
-                  />
-
-                  <h3>{nft.metadata.name}</h3>
-                  <p>{nft.metadata.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </div>
+      <div className="myNFTSection">
+
+  <div className="nftHeader">
+    <button
+      onClick={() =>
+        document
+          .getElementById("nftSlider")
+          .scrollBy({ left: -300, behavior: "smooth" })
+      }
+    >
+      ◀
+    </button>
+
+    <h2>My NFTs ({ownedNFTs.length})</h2>
+
+    <button
+      onClick={() =>
+        document
+          .getElementById("nftSlider")
+          .scrollBy({ left: 300, behavior: "smooth" })
+      }
+    >
+      ▶
+    </button>
+  </div>
+
+  {nftLoading ? (
+    <p>Loading NFTs...</p>
+  ) : ownedNFTs.length === 0 ? (
+    <p>No NFTs Found</p>
+  ) : (
+    <div id="nftSlider" className="nftSlider">
+      {ownedNFTs.map((nft) => (
+        <div className="nftCard" key={nft.id}>
+          <img
+            src={nft.metadata.image?.replace(
+              "ipfs://",
+              "https://ipfs.io/ipfs/"
+            )}
+            alt={nft.metadata.name}
+          />
+
+          <h3>{nft.metadata.name}</h3>
+        </div>
+      ))}
     </div>
+  )}
+    </div>
+    </div>
+
+    
   );
 };
 

@@ -5,6 +5,8 @@
   align-items: center;
   background-color: #f7f1ec;
   padding: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .createNFTLayout_card_container {
@@ -153,4 +155,59 @@
     width: 100%;
   }
 
+}
+
+
+.myNFTSection {
+  width: 90%;
+  max-width: 1400px;
+  margin: 40px;
+}
+
+.nftHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nftHeader button {
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.nftSlider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.nftSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.nftCard {
+  min-width: 250px;
+  max-width: 250px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.nftCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.nftCard h3 {
+  padding: 10px;
+  text-align: center;
 }
