@@ -64,7 +64,7 @@ const Hero = () => {
       setnfts(nfts);
 
       console.log("Total NFTs:", supply.toString());
-      console.log(nfts);
+      console.log(nfts[nfts.length - 1]);
     }
     checkNFTs();
   }, []);
@@ -110,16 +110,19 @@ const Hero = () => {
           <div className="hero-flex">
             <div className="hero-image-box">
               <img
-                src="https://placehold.co/400x500/0F172A/white?text=NFT+Artwork"
+                src={nfts[nfts.length - 1]?.metadata?.image_url?.replace(
+                  "ipfs://",
+                  "https://ipfs.io/ipfs/",
+                )}
                 alt="Collection"
                 className="hero-img"
               />
             </div>
             <div className="hero-text-box">
               <h1 className="hero-title">
-                Panini Blockchain <span className="check-icon">✓</span>
+                {nfts[nfts.length - 1]?.metadata?.name} <span className="check-icon">✓</span>
               </h1>
-              <p className="hero-subtitle">By PaniniAmerica</p>
+              <p className="hero-subtitle">{nfts[nfts.length - 1]?.metadata?.description}</p>
 
               <div className="hero-stats-row">
                 <div className="stat-card">
@@ -157,7 +160,9 @@ const Hero = () => {
               .map((item, idx) => (
                 <div key={idx} className="ranking-row">
                   <div className="ranking-info">
-                    <img height={55} width={55}
+                    <img
+                      height={55}
+                      width={55}
                       src={item?.metadata?.image?.replace(
                         "ipfs://",
                         "https://ipfs.io/ipfs/",
