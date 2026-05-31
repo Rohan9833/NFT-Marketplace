@@ -8,13 +8,13 @@ async function Signup(req,res) {
     const {name,email,password} = req.body;
 
     if(!email||!password||!name){
-        return res.status(4044).json({message:"enter all the data"});
+        return res.status(4044).json({"message":"enter all the data"});
     }
 
     let userexists = await UserModel.findOne({email});
 
     if(userexists){
-        return res.status(409).json({message:"User already Exists"})
+        return res.status(409).json({"message":"User already Exists"})
     }
 
     const Hashedpassword = await bcrypt.hash(password,7)
@@ -26,7 +26,7 @@ async function Signup(req,res) {
         password:Hashedpassword
     })
 
-    return res.status(200).json({message:"user created "})
+    return res.status(200).json({"message":"user created "})
 
     
 

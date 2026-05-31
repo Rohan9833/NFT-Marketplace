@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../Style/Login.css";
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 export default function MintoraLogin() {
   const [loginData, setLoginData] = useState({
@@ -10,10 +11,21 @@ export default function MintoraLogin() {
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Login Data:", loginData);
+
+  //   const result = await axios.post("http://localhost:3000/api/authentication/signup",FormData);
+  //   console.log(result);
+  // };
+
+  async function sumbit(e) {
+     e.preventDefault();
     console.log("Login Data:", loginData);
-  };
+
+    const result = await axios.post("http://localhost:3000/api/authentication/login",loginData);
+    console.log(result);
+  }
 
 
   
@@ -30,7 +42,7 @@ export default function MintoraLogin() {
         </p>
 
         <form
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           className="mintoraLoginFormWrapper"
         >
           <input
@@ -56,6 +68,7 @@ export default function MintoraLogin() {
           <button
             type="submit"
             className="mintoraLoginSubmitButton"
+            onClick={sumbit}
           >
             Login
           </button>
