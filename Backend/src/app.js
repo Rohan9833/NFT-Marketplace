@@ -4,8 +4,13 @@ const cors = require("cors");
 
 const NftRoute = require("./routes/Nft.route.js");
 
+const TokenRoute = require("./routes/Token.route.js");
+
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: 'http://localhost:5173', // ✅ tera React app ka URL
@@ -14,5 +19,9 @@ app.use(cors({
 }));
 
 
+
+
 app.use("/api/nft",NftRoute);
+
+app.use("/api/token",TokenRoute);
 module.exports = app; 
