@@ -2,6 +2,8 @@
 import { useState } from "react";
 import "../Style/Signup.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 export default function MintoraSignup() {
   const [formData, setFormData] = useState({
@@ -10,15 +12,23 @@ export default function MintoraSignup() {
     password: "",
     confirmPassword: "",
   });
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Signup Data:", formData);
+  // };
+  async function sumbit(e) {
     e.preventDefault();
     console.log("Signup Data:", formData);
-  };
+    const result = await axios.post("http://localhost:3000/api/authentication/signup",formData);
+    console.log(result);
+
+  }
+
+
+
 
   return (
     <div className="mintoraSignupMainWrapper">
@@ -30,7 +40,7 @@ export default function MintoraSignup() {
         </p>
 
         <form
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           className="mintoraSignupFormWrapper"
         >
           <input
@@ -76,6 +86,7 @@ export default function MintoraSignup() {
           <button
             type="submit"
             className="mintoraSignupSubmitButton"
+            onClick={sumbit}
           >
             Sign Up
           </button>
