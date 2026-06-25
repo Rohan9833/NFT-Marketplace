@@ -14,6 +14,7 @@ import MintingGasfee from "./Pages/MintingNft";
 import Createnft from "./Pages/Createnft";
 import Marketplace from "./Pages/Marketplace"
 import Assets from "./Pages/Wallet"
+import CreateToken from "./Pages/CreateToken";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
 
 
 
+        <Route path="/createtoken" element={<CreateToken />} />
 
       </Routes>
 
