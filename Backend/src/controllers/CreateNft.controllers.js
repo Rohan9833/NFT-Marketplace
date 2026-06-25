@@ -47,23 +47,11 @@ async function CreateNft(req, res) {
 
   // creating actual NFT
 
-
-
-
-
-
-
-
-
-
-
 console.log("Contract:", process.env.VITE_CONTRACT_ADDRESS);
   console.log("Admin:", account.address);
   console.log("User:", userAddress);
   console.log("NFT Name:", NFTname);
   console.log("Image:", _baseURIForTokens);
-
-
 
 const transactionmint = lazyMint({
   contract,

@@ -12,6 +12,8 @@ import Learnnft from "./Pages/Learnnft";
 import Home from "./Pages/Home";
 import MintingGasfee from "./Pages/MintingNft";
 import Createnft from "./Pages/Createnft";
+import Marketplace from "./Pages/Marketplace"
+import Assets from "./Pages/Wallet"
 
 function App() {
   return (
@@ -29,6 +31,11 @@ function App() {
         <Route path="/learngasfee" element={<GasFee/>} />
         <Route path="/learnmintingnft" element={<MintingGasfee/>}/>
         <Route path="/createnft" element={<Createnft/>} />
+        <Route path="/marketplace" element={<Marketplace/>} />
+        <Route path="/Wallet" element={<Assets/>} />
+
+
+
 
 
       </Routes>
