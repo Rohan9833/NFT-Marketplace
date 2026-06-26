@@ -1,6 +1,5 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {Routes, Route } from "react-router-dom";
-
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import SmartContractLearn from "./Pages/LearnSmartContract";
@@ -15,13 +14,10 @@ import Createnft from "./Pages/Createnft";
 import Marketplace from "./Pages/Marketplace"
 import Assets from "./Pages/Wallet"
 import CreateToken from "./Pages/CreateToken";
-
 function App() {
   return (
     <>
-
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -34,16 +30,9 @@ function App() {
         <Route path="/createnft" element={<Createnft/>} />
         <Route path="/marketplace" element={<Marketplace/>} />
         <Route path="/Wallet" element={<Assets/>} />
-
-
-
-
         <Route path="/createtoken" element={<CreateToken />} />
-
       </Routes>
-
       <Footer />
-
     </>
   );
 }

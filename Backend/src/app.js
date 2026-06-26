@@ -20,13 +20,10 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-<<<<<<< HEAD
 
 
 
-=======
 app.use("/api/authentication",authenticationRoutes)
->>>>>>> fe40bf714e5c379e6c9f115228d90865a624dd89
 app.use("/api/nft",NftRoute);
 
 app.use("/api/token",TokenRoute);
