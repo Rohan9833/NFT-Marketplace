@@ -1,15 +1,15 @@
 /* Inverted Theme using your colors as backgrounds */
 :root {
-  --color-primary: #A98B76;   /* Main Background */
-  --color-secondary: #BFA28C; /* Card Background / Secondary Surfaces */
-  --color-light: #F3E4C9;     /* Accent/Light Highlights */
-  --color-accent: #BABF94;    /* Subtle Muted Tone */
+  --color-primary: #a98b76; /* Main Background */
+  --color-secondary: #bfa28c; /* Card Background / Secondary Surfaces */
+  --color-light: #f3e4c9; /* Accent/Light Highlights */
+  --color-accent: #babf94; /* Subtle Muted Tone */
   --color-buttonbrown: #5a3d2e;
-  
+
   /* Text and dark elements for high contrast on light backgrounds */
-  --color-text-main: #141210;  /* Deep Dark Brown/Black for text */
-  --color-text-muted: #4A423A; /* Muted text for subtitles/collections */
-  --color-border: #967A66;     /* Darker border for structure */
+  --color-text-main: #141210; /* Deep Dark Brown/Black for text */
+  --color-text-muted: #4a423a; /* Muted text for subtitles/collections */
+  --color-border: #967a66; /* Darker border for structure */
 }
 
 /* Base Style & Background */
@@ -17,12 +17,14 @@
   background-color: var(--color-primary);
   color: var(--color-text-main);
   min-height: 100vh;
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  font-family: "Segoe UI", Roboto, sans-serif;
   padding: 16px 24px;
 }
 
 @media (min-width: 768px) {
-  .mkp-nft-container { padding: 24px 64px; }
+  .mkp-nft-container {
+    padding: 24px 64px;
+  }
 }
 
 /* Buttons */
@@ -35,11 +37,17 @@
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.1s;
+  transition:
+    opacity 0.2s,
+    transform 0.1s;
 }
 
-.mkp-btn-primary:hover { opacity: 0.9; }
-.mkp-btn-primary:active { transform: scale(0.98); }
+.mkp-btn-primary:hover {
+  opacity: 0.9;
+}
+.mkp-btn-primary:active {
+  transform: scale(0.98);
+}
 
 /* 2. Hero Section */
 .mkp-hero-section {
@@ -52,10 +60,15 @@
 }
 
 @media (min-width: 768px) {
-  .mkp-hero-section { flex-direction: row; padding: 80px 0; }
+  .mkp-hero-section {
+    flex-direction: row;
+    padding: 80px 0;
+  }
 }
 
-.mkp-hero-content { max-w: 570px; }
+.mkp-hero-content {
+  max-w: 570px;
+}
 
 .mkp-hero-title {
   font-size: 40px;
@@ -66,14 +79,20 @@
 }
 
 @media (min-width: 992px) {
-  .mkp-hero-title { font-size: 56px; }
+  .mkp-hero-title {
+    font-size: 56px;
+  }
 }
 
 .mkp-text-gradient {
-  background: linear-gradient(to right, var(--color-light), var(--color-accent));
+  background: linear-gradient(
+    to right,
+    var(--color-light),
+    var(--color-accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
 }
 
 .mkp-hero-subtitle {
@@ -89,7 +108,10 @@
   gap: 16px;
 }
 
-.mkp-btn-large { padding: 14px 28px; font-size: 14px; }
+.mkp-btn-large {
+  padding: 14px 28px;
+  font-size: 14px;
+}
 
 .mkp-btn-secondary {
   background-color: #5a3d2e22;
@@ -98,10 +120,15 @@
   border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
 }
 
-.mkp-btn-secondary:hover { border-color: var(--color-text-main); background: #0000002c; }
+.mkp-btn-secondary:hover {
+  border-color: var(--color-text-main);
+  background: #0000002c;
+}
 
 .mkp-hero-image-wrapper {
   position: relative;
@@ -111,12 +138,14 @@
 
 .mkp-hero-glow {
   position: absolute;
-  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
   background: rgba(243, 228, 201, 0.3);
   filter: blur(40px);
   border-radius: 50%;
 }
-
 
 .mkp-hero-img {
   position: relative;
@@ -143,7 +172,9 @@
 }
 
 @media (min-width: 576px) {
-  .mkp-list-nft-banner { flex-direction: row; }
+  .mkp-list-nft-banner {
+    flex-direction: row;
+  }
 }
 
 .mkp-banner-left {
@@ -161,12 +192,36 @@
   font-weight: bold;
 }
 
-.mkp-banner-title { font-size: 18px; font-weight: 700; margin: 0 0 4px 0; }
-.mkp-banner-desc { color: var(--color-text-muted); font-size: 13px; margin: 0; font-weight: 500; }
-.mkp-btn-banner { border-radius: 12px; }
+.mkp-banner-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+.mkp-banner-desc {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin: 0;
+  font-weight: 500;
+}
+.mkp-btn-banner {
+  border-radius: 12px;
+}
 
 @media (max-width: 576px) {
-  .mkp-btn-banner { width: 100%; }
+  .mkp-btn-banner {
+    width: 100%;
+  }
+}
+
+.mkp-wallet-connect-button{
+  font-size: 16px;
+    height: 50px;
+    min-width: 165px;
+    margin: 50px auto;
+
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* 4. Trending Grid Layout */
@@ -183,10 +238,17 @@
 }
 
 @media (min-width: 768px) {
-  .mkp-trending-header { flex-direction: row; align-items: center; }
+  .mkp-trending-header {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
-.mkp-section-title { font-size: 22px; font-weight: 800; margin: 0; }
+.mkp-section-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+}
 
 .mkp-filter-wrapper {
   display: flex;
@@ -197,7 +259,10 @@
 }
 
 @media (min-width: 768px) {
-  .mkp-filter-wrapper { width: auto; justify-content: flex-end; }
+  .mkp-filter-wrapper {
+    width: auto;
+    justify-content: flex-end;
+  }
 }
 
 .mkp-categories-tabs {
@@ -206,8 +271,13 @@
   overflow-x: auto;
 }
 
-.mkp-categories-tabs::-webkit-scrollbar { display: none; }
-.mkp-categories-tabs { -ms-overflow-style: none; scrollbar-width: none; }
+.mkp-categories-tabs::-webkit-scrollbar {
+  display: none;
+}
+.mkp-categories-tabs {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 .mkp-tab-btn {
   background-color: var(--color-secondary);
@@ -222,7 +292,8 @@
   transition: all 0.2s;
 }
 
-.mkp-tab-btn.mkp-active, .mkp-tab-btn:hover {
+.mkp-tab-btn.mkp-active,
+.mkp-tab-btn:hover {
   background-color: var(--color-text-main);
   color: var(--color-light);
   border-color: var(--color-text-main);
@@ -247,28 +318,43 @@
   gap: 24px;
 }
 
-@media (min-width: 576px) { .mkp-nft-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 768px) { .mkp-nft-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 1024px) { .mkp-nft-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 576px) {
+  .mkp-nft-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 768px) {
+  .mkp-nft-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .mkp-nft-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 
 .mkp-nft-card {
   background-color: var(--color-secondary);
   border: 1px solid var(--color-border);
   border-radius: 16px;
   overflow: hidden;
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .mkp-nft-card:hover {
   border-color: var(--color-text-main);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .mkp-card-image-box {
   position: relative;
   aspect-ratio: 1 / 1;
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .mkp-card-img {
@@ -279,7 +365,8 @@
 
 .mkp-like-badge {
   position: absolute;
-  top: 12px; right: 12px;
+  top: 12px;
+  right: 12px;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(6px);
   color: var(--color-text-main);
@@ -290,7 +377,9 @@
   border: 1px solid var(--color-border);
 }
 
-.mkp-card-details { padding: 16px; }
+.mkp-card-details {
+  padding: 16px;
+}
 
 .mkp-card-info-row {
   display: flex;
@@ -299,10 +388,31 @@
   margin-bottom: 12px;
 }
 
-.mkp-card-title { font-size: 14px; font-weight: 700; margin: 0 0 4px 0; color: var(--color-text-main); }
-.mkp-card-collection { color: var(--color-text-muted); font-size: 11px; margin: 0; font-weight: 500; }
-.mkp-card-eth { color: var(--color-text-main); font-size: 13px; font-weight: 800; margin: 0 0 4px 0; }
-.mkp-card-usd { color: var(--color-text-muted); font-size: 10px; margin: 0; text-align: right; font-weight: 500; }
+.mkp-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: var(--color-text-main);
+}
+.mkp-card-collection {
+  color: var(--color-text-muted);
+  font-size: 11px;
+  margin: 0;
+  font-weight: 500;
+}
+.mkp-card-eth {
+  color: var(--color-text-main);
+  font-size: 13px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+.mkp-card-usd {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  margin: 0;
+  text-align: right;
+  font-weight: 500;
+}
 
 .mkp-card-author-row {
   border-top: 1px solid var(--color-border);
@@ -313,15 +423,55 @@
 }
 
 .mkp-author-avatar {
-  width: 20px; height: 20px;
+  width: 20px;
+  height: 20px;
   background-color: var(--color-text-main);
   border-radius: 50%;
   overflow: hidden;
 }
 
-.mkp-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.mkp-author-name { color: var(--color-text-main); font-size: 11px; font-weight: 600; }
-.mkp-verified-tick { color: var(--color-text-muted); font-size: 10px; font-weight: bold; }
+.mkp-author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mkp-author-name {
+  color: var(--color-text-main);
+  font-size: 11px;
+  font-weight: 600;
+}
+.mkp-verified-tick {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  font-weight: bold;
+}
+.mkp-nft-card-buybutton {
+  background-color: #f3e4c978;
+  border-radius: 8px;
+  border-width: 0;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family:
+    "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  /* margin: 0; */
+  margin-left: auto;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.mkp-nft-card-buybutton:hover {
+  background-color: #f3e4c9ac;
+}
 
 /* Load More Section */
 .mkp-load-more-box {
@@ -345,5 +495,10 @@
   transition: all 0.2s;
 }
 
-.mkp-btn-load-more:hover { border-color: var(--color-text-main); background-color: rgba(0,0,0,0.07); }
-.mkp-refresh-icon { color: var(--color-text-main); }
+.mkp-btn-load-more:hover {
+  border-color: var(--color-text-main);
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.mkp-refresh-icon {
+  color: var(--color-text-main);
+}
