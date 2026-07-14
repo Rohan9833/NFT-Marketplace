@@ -1,6 +1,18 @@
-import React from "react";
-import "../../style/FeaturedTokens.css";
+import React, { useState, useEffect } from "react";
+import "../../Style/FeaturedTokens.css";
+import { getNFTs } from "thirdweb/extensions/erc721";
+import { createThirdwebClient, getContract } from "thirdweb";
+import { sepolia } from "thirdweb/chains";
 
+const client = createThirdwebClient({
+  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
+});
+
+const contract = getContract({
+  client,
+  chain: sepolia,
+  address: import.meta.env.VITE_CONTRACT_ADDRESS,
+});
 const FeaturedTokens = () => {
   const tokens = [
     {
@@ -113,6 +125,17 @@ const FeaturedTokens = () => {
       img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
     },
   ];
+  const [nfts, setNfts] = useState([]);
+  useEffect(() => {
+    async function GetNFTS() {
+      const data = await getNFTs({
+        contract,
+      });
+      setNfts(data);
+      console.log(data);
+    }
+    GetNFTS();
+  }, []);
 
   return (
     <div id="fnt-featured-section-container">
@@ -122,48 +145,60 @@ const FeaturedTokens = () => {
       </header>
 
       <div id="fnt-token-grid-layout">
-        {tokens.map((token) => (
-          <div key={token.id} className="fnt-token-card-wrapper">
-            <div className="fnt-card-media-context">
-              <img
-                src={token.img}
-                alt=""
-                className="fnt-card-background-asset"
-              />
-              <div className="fnt-card-overlay-gradient"></div>
-            </div>
+        {nfts
+          ?.slice()
+          .reverse()
+          .map((nft) => (
+            <div key={nft.id.toString()} className="fnt-token-card-wrapper">
+              <div className="fnt-card-media-context">
+                <img
+                  src={
+                    nft?.metadata?.image?.replace(
+                      "ipfs://",
+                      "https://ipfs.io/ipfs/",
+                    ) || ""
+                  }
+                  alt={nft?.metadata?.name}
+                  className="fnt-card-background-asset"
+                />
 
-            <div className="fnt-card-content-footer">
-              <div className="fnt-identity-row">
-                <div className="fnt-avatar-container">
-                  <img
-                    src={token.img}
-                    alt=""
-                    className="fnt-token-icon-small"
-                  />
+                <div className="fnt-card-overlay-gradient"></div>
+              </div>
+
+              <div className="fnt-card-content-footer">
+                <div className="fnt-identity-row">
+                  <div className="fnt-avatar-container">
+                    <img
+                      src={
+                        nft?.metadata?.image?.replace(
+                          "ipfs://",
+                          "https://ipfs.io/ipfs/",
+                        ) || ""
+                      }
+                      alt={nft?.metadata?.name}
+                      className="fnt-token-icon-small"
+                    />
+                  </div>
+
+                  <div className="fnt-label-stack">
+                    <span className="fnt-token-display-name">
+                      {nft?.metadata?.name}
+                    </span>
+                  </div>
                 </div>
-                <div className="fnt-label-stack">
-                  <span className="fnt-token-display-name">
-                    {token.name}{" "}
-                    <span className="fnt-token-ticker">{token.symbol}</span>
-                    {token.verified && (
-                      <span className="fnt-verified-badge">✓</span>
-                    )}
+
+                <div className="fnt-metric-row">
+                  <span className="fnt-fdv-label">
+                    Token #{nft.id.toString()}
+                  </span>
+
+                  <span className="fnt-percent-change fnt-state-up">
+                    ERC721
                   </span>
                 </div>
               </div>
-
-              <div className="fnt-metric-row">
-                <span className="fnt-fdv-label">FDV {token.fdv}</span>
-                <span
-                  className={`fnt-percent-change ${token.type === "negative" ? "fnt-state-down" : "fnt-state-up"}`}
-                >
-                  {token.change}
-                </span>
-              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
