@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Style/Learn.css";
+import "../../Style/Learnnft.css"
 import NFT from "../../assets/images/NFTImg.webp";
 import SC from "../../assets/images/SCImg.webp";
 import NFTGas from "../../assets/images/NFTGasfee.webp";
