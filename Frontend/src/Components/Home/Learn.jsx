@@ -1,5 +1,5 @@
 import React from "react";
-// import "../../Style/Learnnft.css";
+import "../../Style/Learnnft.css";
 
 const FeaturedTokens = () => {
 
