@@ -64,7 +64,6 @@ const Hero = () => {
       setnfts(nfts);
 
       console.log("Total NFTs:", supply.toString());
-      console.log(nfts[nfts.length - 1]);
     }
     checkNFTs();
   }, []);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Style/Createnft.css";
+import ListNFTModal from "../Components/ListNft";
 import axios from "axios";
 
 // ThirdWeb imports
@@ -10,12 +11,10 @@ import { useActiveAccount, ConnectButton } from "thirdweb/react";
 // import { claimTo, lazyMint } from "thirdweb/extensions/erc721";
 // import { sendTransaction } from "thirdweb";
 
-// ✅ Client banao — ek baar banao, component ke bahar
 const client = createThirdwebClient({
   clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
 });
 
-// ✅ Contract banao — ek baar banao
 const contract = getContract({
   client,
   chain: sepolia, // ← Sepolia testnet
@@ -30,6 +29,9 @@ const Createnft = () => {
   const [NFTdescription, setDescription] = useState("");
   const [ownedNFTs, setOwnedNFTs] = useState([]);
   const [nftLoading, setNftLoading] = useState(false);
+  // const [selling_amount, setselling_amount] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedNFT, setSelectedNFT] = useState(null);
 
   const account = useActiveAccount();
   //kaunsa image selected hai uska kaam ho raha hai yaha
@@ -163,6 +165,14 @@ const Createnft = () => {
     }
   }
 
+  async function sellNFT(tokenId, nft) {
+    console.log(tokenId);
+    // console.log(selling_amount);
+    console.log(selectedNFT)
+
+
+  }
+
   useEffect(() => {
     loadMyNFTs();
   }, [account]);
@@ -270,10 +280,32 @@ const Createnft = () => {
                 />
 
                 <h3>{nft.metadata.name}</h3>
+                {/* <input
+                  type="text"
+                  onChange={(e) => setselling_amount(e.target.value)}
+                  className="selling-amount"
+                  placeholder="enter the amount to list your nft"
+                /> */}
+                <button
+                  onClick={() => {
+                    setIsOpen(true)
+                    setSelectedNFT(nft);
+                    sellNFT(nft.id, nft);
+
+                  }}
+                >
+                  Sell
+                </button>
               </div>
             ))}
           </div>
         )}
+        <ListNFTModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          nft={selectedNFT}
+          
+        />
       </div>
     </div>
   );
