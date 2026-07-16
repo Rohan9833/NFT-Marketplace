@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ethers } from "ethers";
+import "../Style/CreateToken.css"
 
 const FACTORY_ADDRESS =
   "0x67fB0aaE57dD8516785Da29DB3A394EA2F281Cbe";
@@ -48,44 +49,58 @@ function CreateToken() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h1>Create Token</h1>
+  <div className="create-token-page">
+    <div className="create-token-card">
 
-      <input
-        type="text"
-        placeholder="Token Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <h1 className="create-token-title">
+        Create Token
+      </h1>
 
-      <br />
-      <br />
+      <p className="create-token-subtitle">
+        Deploy your own ERC-20 token on the Sepolia network
+        and manage ownership directly from your wallet.
+      </p>
 
-      <input
-        type="text"
-        placeholder="Token Symbol"
-        value={symbol}
-        onChange={(e) => setSymbol(e.target.value)}
-      />
+      <div className="form-group">
+        <label>Token Name</label>
+        <input
+          type="text"
+          placeholder="Example: Mintora Token"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
 
-      <br />
-      <br />
+      <div className="form-group">
+        <label>Token Symbol</label>
+        <input
+          type="text"
+          placeholder="Example: MTA"
+          value={symbol}
+          onChange={(e) => setSymbol(e.target.value)}
+        />
+      </div>
 
-      <input
-        type="number"
-        placeholder="Supply"
-        value={supply}
-        onChange={(e) => setSupply(e.target.value)}
-      />
+      <div className="form-group">
+        <label>Total Supply</label>
+        <input
+          type="number"
+          placeholder="Example: 1000000"
+          value={supply}
+          onChange={(e) => setSupply(e.target.value)}
+        />
+      </div>
 
-      <br />
-      <br />
-
-      <button onClick={createToken}>
+      <button
+        className="create-token-btn"
+        onClick={createToken}
+      >
         Create Token
       </button>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default CreateToken;

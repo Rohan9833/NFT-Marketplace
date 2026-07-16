@@ -1,5 +1,10 @@
 import React from "react";
-import "../../style/Learn.css";
+import "../../Style/Learn.css";
+import NFT from "../../assets/images/NFTImg.webp";
+import SC from "../../assets/images/SCImg.webp";
+import NFTGas from "../../assets/images/NFTGasfee.webp";
+import mintnft from "../../assets/images/MintNFT.webp";
+import Stablecoin from "../../assets/images/Stablecoin.webp";
 
 const FeaturedTokens = () => {
 
@@ -33,34 +38,34 @@ const FeaturedTokens = () => {
       id: 1,
       title: "What is NFT",
       desc: "Digital ownership explained",
-      img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
+      img: NFT,
     },
     {
       id: 2,
       title: "Smart Contracts",
       desc: "Automated blockchain logic",
 
-      img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
+      img: SC,
     },
     {
       id: 3,
       title: "Gas Fees",
       desc: "Transaction cost basics",
 
-      img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
+      img: NFTGas,
     },
     {
       id: 4,
       title: "Minting NFT",
       desc: "Create blockchain assets",
 
-      img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
+      img: mintnft,
     },
     {
       id: 5,
       title: "What is NFT",
       desc: "Digital ownership explained",
-      img: "https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ",
+      img: Stablecoin,
     },
   ];
 

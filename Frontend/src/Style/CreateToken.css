@@ -1,0 +1,86 @@
+.create-token-page {
+  min-height: 100vh;
+  background: #f4ede4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 70px 20px;
+}
+
+.create-token-card {
+  width: 100%;
+  max-width: 550px;
+  background: #faf5ef;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.create-token-title {
+  font-size: 2.2rem;
+  color: #07153d;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.create-token-subtitle {
+  color: #7a5b4b;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #07153d;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 55px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1.5px solid #d8c8b8;
+  background: white;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #6b4432;
+  box-shadow: 0 0 0 4px rgba(107, 68, 50, 0.08);
+}
+
+.form-group input::placeholder {
+  color: #a8a8a8;
+}
+
+.create-token-btn {
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-radius: 12px;
+  background: #6b4432;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.create-token-btn:hover {
+  background: #553425;
+  transform: translateY(-2px);
+}
+
+.create-token-btn:active {
+  transform: scale(0.98);
+}
