@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "../Style/Createnft.css";
 import ListNFTModal from "../Components/ListNft";
 import axios from "axios";
-
 // ThirdWeb imports
 import { createThirdwebClient, getContract } from "thirdweb";
 import { getOwnedNFTs } from "thirdweb/extensions/erc721";
@@ -34,6 +34,7 @@ const Createnft = () => {
   const [selectedNFT, setSelectedNFT] = useState(null);
 
   const account = useActiveAccount();
+  const location = useLocation();
   //kaunsa image selected hai uska kaam ho raha hai yaha
   const handleImageSelect = (event) => {
     const file = event.target.files[0];
@@ -168,14 +169,26 @@ const Createnft = () => {
   async function sellNFT(tokenId, nft) {
     console.log(tokenId);
     // console.log(selling_amount);
-    console.log(selectedNFT)
-
-
+    console.log(selectedNFT);
   }
 
   useEffect(() => {
     loadMyNFTs();
   }, [account]);
+  useEffect(() => {
+    if (location.hash === "#scroll-here") {
+      setTimeout(() => {
+        const element = document.getElementById("scroll-here");
+
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 300);
+    }
+  }, [location]);
 
   return (
     <div className="createNFTLayout_main_container">
@@ -238,7 +251,7 @@ const Createnft = () => {
           </button> */}
         </div>
       </div>
-      <div className="myNFTSection">
+      <div className="myNFTSection" id="scroll-here">
         <div className="nftHeader">
           <button
             onClick={() =>
@@ -288,10 +301,9 @@ const Createnft = () => {
                 /> */}
                 <button
                   onClick={() => {
-                    setIsOpen(true)
+                    setIsOpen(true);
                     setSelectedNFT(nft);
                     sellNFT(nft.id, nft);
-
                   }}
                 >
                   Sell
@@ -304,7 +316,6 @@ const Createnft = () => {
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           nft={selectedNFT}
-          
         />
       </div>
     </div>

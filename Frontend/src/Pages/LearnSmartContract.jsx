@@ -14,7 +14,7 @@ export default function SmartContractLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*4nX1cP5E8cM6d4Qh0S6b6Q.png"
+            src="whatissmartcontract.png"
             alt="NFT concept"
           />
         </div>
@@ -30,7 +30,7 @@ export default function SmartContractLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1400/1*JxQ2sJHqkRkNvztNFVQVwA.png"
+            src="smartcontractconcept.png"
             alt="Fungible vs Non fungible"
           />
         </div>
@@ -48,7 +48,7 @@ export default function SmartContractLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*vXj5QJ6N0iR8e2wX1QxkYg.png"
+            src="howsmartcontractworks.png"
             alt="Blockchain NFT working"
           />
         </div>
@@ -66,7 +66,7 @@ export default function SmartContractLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*QvXr8mQ6u7Y8G2dT6G7k7A.png"
+            src="smartcontractusecase.png"
             alt="NFT use cases"
           />
         </div>
@@ -80,6 +80,12 @@ export default function SmartContractLearn() {
           They remove intermediaries, reduce costs, prevent fraud, and ensure
           that agreements are executed exactly as programmed.
         </p>
+        <div className="mintoraLearnImageBox">
+          <img
+            src="whysmartcontractmatters.png"
+            alt="NFT use cases"
+          />
+        </div>
       </div>
     </div>
   );

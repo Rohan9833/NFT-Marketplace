@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "../Style/Marketplace.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //thirdweb imports
 import { createThirdwebClient, getContract, sendTransaction } from "thirdweb";
@@ -135,6 +136,7 @@ const contract = getContract({
 
 export default function Marketplace() {
   const account = useActiveAccount();
+  const navigate = useNavigate();
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -181,10 +183,20 @@ export default function Marketplace() {
             the world's best NFT marketplace.
           </p>
           <div className="mkp-hero-buttons">
-            <button className="mkp-btn-primary mkp-btn-large">
-              Create NFTs{" "}
+            <button
+              onClick={() => {
+                window.location.href = "/createnft";
+              }}
+              className="mkp-btn-primary mkp-btn-large"
+            >
+              Create NFTs
             </button>
-            <button className="mkp-btn-secondary mkp-btn-large">
+            <button
+              onClick={() => {
+                window.location.href = "/learnnft";
+              }}
+              className="mkp-btn-secondary mkp-btn-large"
+            >
               How it works ⏱
             </button>
           </div>
@@ -200,7 +212,10 @@ export default function Marketplace() {
       </header>
 
       {/* 3. Banner */}
-      <section className="mkp-list-nft-banner">
+      <section
+        className="mkp-list-nft-banner"
+        onClick={() => navigate("/createnft#scroll-here")}
+      >
         <div className="mkp-banner-left">
           <div className="mkp-banner-icon">＋</div>
           <div>
@@ -220,28 +235,7 @@ export default function Marketplace() {
       <section className="mkp-trending-section">
         <div className="mkp-trending-header">
           <h2 className="mkp-section-title">Trending NFTs 🔥</h2>
-          <div className="mkp-filter-wrapper">
-            <div className="mkp-categories-tabs">
-              {[
-                "All",
-                "Art",
-                "Collectibles",
-                "Music",
-                "Photography",
-                "Domain Names",
-              ].map((tab, i) => (
-                <button
-                  key={i}
-                  className={`mkp-tab-btn ${i === 0 ? "mkp-active" : ""}`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-            <select className="mkp-sort-select">
-              <option>Sort by: Popular</option>
-            </select>
-          </div>
+          <div className="mkp-filter-wrapper"></div>
         </div>
 
         {/* NFT Grid */}

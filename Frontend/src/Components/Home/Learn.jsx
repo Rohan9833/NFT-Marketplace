@@ -25,7 +25,7 @@ const FeaturedTokens = () => {
                 window.location.href = "/learnmintingnft"
                 break;
             case 5:
-                window.location.href = "/learnnft"
+                window.location.href = "/learnstablecoin"
                 break;
 
         }
@@ -63,7 +63,7 @@ const FeaturedTokens = () => {
     },
     {
       id: 5,
-      title: "What is NFT",
+      title: "What is Stable coin",
       desc: "Digital ownership explained",
       img: Stablecoin,
     },
@@ -72,7 +72,7 @@ const FeaturedTokens = () => {
   return (
     <div id="fnt-featured-section-container">
       <header id="fnt-header-group">
-        <h2 id="fnt-main-title">Learn NFT</h2>
+        <h2 id="fnt-main-title">Learn about Web3</h2>
         <p id="fnt-sub-heading">Learn about NFT's , Web3, and more</p>
       </header>
 
