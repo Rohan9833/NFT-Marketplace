@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import "../Style/Marketplace.css";
 import { useState } from "react";
+import { ethers } from "ethers";
 
 //thirdweb imports
 import { createThirdwebClient, getContract, sendTransaction } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
-import {
-  getAllValidListings,
-  buyFromListing,
-  getAllListings,
-} from "thirdweb/extensions/marketplace";
+// import {
+//   getAllValidListings,
+//   buyFromListing,
+//   getAllListings,
+// } from "thirdweb/extensions/marketplace";
 import { useActiveAccount, ConnectButton } from "thirdweb/react";
 
 const nftData = [
@@ -131,11 +132,104 @@ const contract = getContract({
   address: import.meta.env.VITE_MARKETPLACE_SHOP_CONTRACT_ADDRESS,
 });
 
+// const FACTORY_ADDRESS =
+// "0xc762F57A14F808cf7654985a07dB78f92D7aD698";
+
+// const FACTORY_ABI = [
+//   "function getAllListings() view returns(tuple(uint256 listingId,address seller,address tokenAddress,uint256 price,bool active)[])"
+// ];
+
+const FACTORY_ADDRESS = "0x0b813C6A0825EedB61967Cc72D54c2970C158719";
+
+const FACTORY_ABI = [
+  "function getAllListings() view returns((uint256 listingId,address seller,address tokenAddress,uint256 price,bool active,uint256 amount,uint256 remaining)[])",
+  "function buyTokens(uint256 listingId,uint256 amount) payable",
+  "function listToken(address tokenAddress,uint256 price,uint256 amount)",
+  "function getUserTokens(address user) view returns(address[])",
+  "function cancelListing(uint256 listingId)",
+  "function updateListingPrice(uint256 listingId,uint256 newPrice)"
+];
+
+const TOKEN_ABI = [
+  "function name() view returns(string)",
+  "function symbol() view returns(string)",
+  "function totalSupply() view returns(uint256)"
+];
+
 //starts
 
 export default function Marketplace() {
   const account = useActiveAccount();
   const [listings, setListings] = useState([]);
+  const [tokenListings, setTokenListings] = useState([]);
+
+ const getAllTokenListings = async () => {
+
+  try {
+
+    if (!window.ethereum) return;
+
+    const provider = new ethers.BrowserProvider(window.ethereum);
+
+    const contract = new ethers.Contract(
+      FACTORY_ADDRESS,
+      FACTORY_ABI,
+      provider
+    );
+
+    const data = await contract.getAllListings();
+    console.log("Raw Listings:", data);
+    console.log("Length:", data.length);
+
+    const listingsWithMetadata = await Promise.all(
+
+      data.map(async (item) => {
+
+        const tokenContract = new ethers.Contract(
+        item[2],
+        TOKEN_ABI,
+        provider
+      );
+
+        const name = await tokenContract.name();
+        const symbol = await tokenContract.symbol();
+        const supply = await tokenContract.totalSupply();
+
+        console.log("Single Listing:", item);
+        console.log({
+          listingId: item[0].toString(),
+          seller: item[1],
+          tokenAddress: item[2],
+          price: item[3].toString(),
+          active: item[4],
+          });
+
+        return {
+            listingId: item[0],
+            seller: item[1],
+            tokenAddress: item[2],
+            price: item[3],
+            active: item[4],
+            amount: item[5],
+            remaining: item[6],
+
+            name,
+            symbol,
+            supply: ethers.formatUnits(supply, 18),
+          };
+
+      })
+
+    );
+
+    console.log("Metadata Listings:", listingsWithMetadata);
+
+    setTokenListings(listingsWithMetadata);
+
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   useEffect(() => {
     async function Getalllist(params) {
@@ -148,8 +242,71 @@ export default function Marketplace() {
     }
 
     Getalllist();
+
+    getAllTokenListings();
+
   }, []);
   console.log(listings);
+
+  const buyToken = async (item) => {
+
+  try {
+
+    if (!window.ethereum) return;
+
+    const provider = new ethers.BrowserProvider(window.ethereum);
+
+    const signer = await provider.getSigner();
+
+    const contract = new ethers.Contract(
+      FACTORY_ADDRESS,
+      FACTORY_ABI,
+      signer
+    );
+
+    // Filhaal test ke liye 1 token buy karenge
+    const amount = ethers.parseUnits("1", 18);
+
+    // Price calculate
+    const totalCost = item.price;
+
+    const tx = await contract.buyTokens(
+      item.listingId,
+      amount,
+      {
+        value: totalCost,
+      }
+    );
+
+    await tx.wait();
+
+    alert("Token Purchased Successfully ✅");
+
+    getAllTokenListings();
+
+  } 
+  // catch (error) {
+
+  //   console.log(error);
+
+  //   alert("Purchase Failed");
+
+  // }
+
+  catch (error) {
+  console.log(error);
+  console.log(error.reason);
+  console.log(error.shortMessage);
+  console.log(error.data);
+
+  alert(
+    error.shortMessage ||
+    error.reason ||
+    error.message
+  );
+}
+
+};
 
   async function BuyListedNFT(nft) {
     if (!account) {
@@ -215,6 +372,63 @@ export default function Marketplace() {
       <div className="mkp-wallet-connect-button">
         <ConnectButton className="mkp-wallet-connect-button" client={client} />
       </div>
+<section>
+
+<h2>🔥 Listed Tokens</h2>
+
+<div className="listed-token-container">
+
+{
+tokenListings.map((item, index) => (
+
+<div
+  key={item.listingId}
+  className="listed-token-card"
+>
+
+  <div className="listed-token-left">
+
+    <div className="token-symbol-circle">
+
+      {item.symbol}
+
+    </div>
+
+    <div>
+
+      <h3>{item.name}</h3>
+
+      <p>
+
+        Supply : {item.supply}
+
+      </p>
+
+    </div>
+
+  </div>
+
+  <div className="listed-token-right">
+
+  <h3>{ethers.formatEther(item.price)} ETH</h3>
+
+    <button
+  className="buy-token-btn"
+  onClick={() => buyToken(item)}
+>
+  BUY
+</button>
+
+  </div>
+
+</div>
+
+))
+}
+
+</div>
+
+</section>
 
       {/* 4. Trending Section */}
       <section className="mkp-trending-section">
