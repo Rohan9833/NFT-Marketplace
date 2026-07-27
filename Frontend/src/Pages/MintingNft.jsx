@@ -14,10 +14,7 @@ export default function MintingGasfee() {
         </p>
 
         <div className="mintoraLearnImageBox">
-          <img
-            src="https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ"
-            alt="NFT concept"
-          />
+          <img src="mintingnft.png" alt="NFT concept" />
         </div>
 
         <h2 className="mintoraLearnSectionHeading">Minting Concept</h2>
@@ -30,10 +27,7 @@ export default function MintingGasfee() {
         </p>
 
         <div className="mintoraLearnImageBox">
-          <img
-            src="https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ"
-            alt="Fungible vs Non fungible"
-          />
+          <img src="mintingconcept.png" alt="Fungible vs Non fungible" />
         </div>
 
         <h2 className="mintoraLearnSectionHeading">How NFT Minting Works</h2>
@@ -47,10 +41,7 @@ export default function MintingGasfee() {
         </p>
 
         <div className="mintoraLearnImageBox">
-          <img
-            src="https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ"
-            alt="Blockchain NFT working"
-          />
+          <img src="hownftmintingworks.png" alt="Blockchain NFT working" />
         </div>
 
         <h2 className="mintoraLearnSectionHeading">
@@ -65,10 +56,7 @@ export default function MintingGasfee() {
         </p>
 
         <div className="mintoraLearnImageBox">
-          <img
-            src="https://imgs.search.brave.com/qBvxUBBoFkGjYur7wjJbIxX0AoTyBaMypP8Z1PYFWts/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjE5/NjkwNjIwNC92ZWN0/b3IvY3J5cHRvY3Vy/cmVuY3ktbWVtZS1j/b2luLXRva2VuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1q/VU5KZGt5SHlYT3V5/Qi1rdjJHcG80OEVo/Vy13OFl1N1Eyamw3/ZU1md25VPQ"
-            alt="NFT use cases"
-          />
+          <img src="wherenftmintingisused.png" alt="NFT use cases" />
         </div>
 
         <h2 className="mintoraLearnSectionHeading">Why NFT Minting Matters</h2>
@@ -78,6 +66,9 @@ export default function MintingGasfee() {
           It allows creators to sell their work directly, earn royalties on
           resales, and securely store their creations on blockchain networks.
         </p>
+        <div className="mintoraLearnImageBox">
+          <img src="whynftmintingmatters.png" alt="NFT use cases" />
+        </div>
       </div>
     </div>
   );

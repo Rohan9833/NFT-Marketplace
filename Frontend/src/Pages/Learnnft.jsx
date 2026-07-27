@@ -19,7 +19,7 @@ export default function MintoraNFTLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*4nX1cP5E8cM6d4Qh0S6b6Q.png"
+            src="/WhatisanNFT.png"
             alt="NFT concept"
           />
         </div>
@@ -38,7 +38,7 @@ export default function MintoraNFTLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1400/1*JxQ2sJHqkRkNvztNFVQVwA.png"
+            src="FungiblevsnonFungible.png"
             alt="Fungible vs Non fungible"
           />
         </div>
@@ -57,7 +57,7 @@ export default function MintoraNFTLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*vXj5QJ6N0iR8e2wX1QxkYg.png"
+            src="hownftworks.png"
             alt="Blockchain NFT working"
           />
         </div>
@@ -76,7 +76,7 @@ export default function MintoraNFTLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*QvXr8mQ6u7Y8G2dT6G7k7A.png"
+            src="nftusecase.png"
             alt="NFT use cases"
           />
         </div>
@@ -91,6 +91,12 @@ export default function MintoraNFTLearn() {
           gamers can own in-game assets, and collectors can verify
           authenticity easily using blockchain records.
         </p>
+        <div className="mintoraLearnImageBox">
+          <img
+            src="whynftmatters.png"
+            alt="NFT use cases"
+          />
+        </div>
 
       </div>
     </div>

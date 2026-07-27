@@ -1,16 +1,18 @@
 import React from "react";
 import "../Style/About.css";
+const client = createThirdwebClient({
+  clientId: import.meta.env.VITE_MARKETPLACE_SHOP_THIRDWEB_CLIENT_ID,
+});
+import { useActiveAccount, ConnectButton } from "thirdweb/react";
+import { createThirdwebClient, getContract, sendTransaction } from "thirdweb";
 
 const About = () => {
   return (
     <div className="aboutPageWrapper">
-
       {/* HERO SECTION */}
 
       <section className="aboutPageHeroContainer">
-
         <div className="aboutPageHeroLeftSide">
-
           <h1 className="aboutPageHeroHeading">
             About Our NFT <br /> Marketplace
           </h1>
@@ -23,14 +25,11 @@ const About = () => {
           <button className="aboutPageExploreButton">
             Explore Marketplace
           </button>
-
         </div>
-
 
         {/* RIGHT STATS */}
 
         <div className="aboutPageStatsContainer">
-
           <div className="aboutPageStatCard">
             <div className="aboutPageStatNumber">10K+</div>
             <div className="aboutPageStatLabel">NFTs Minted</div>
@@ -45,16 +44,12 @@ const About = () => {
             <div className="aboutPageStatNumber">120+</div>
             <div className="aboutPageStatLabel">Verified Creators</div>
           </div>
-
         </div>
-
       </section>
-
 
       {/* FEATURES */}
 
       <section className="aboutPageFeatureGrid">
-
         <div className="aboutPageFeatureCard">
           <div className="aboutPageFeatureTitle">Secure Blockchain</div>
           <div className="aboutPageFeatureText">
@@ -82,45 +77,36 @@ const About = () => {
             Lightning-fast NFT transfers and marketplace speed.
           </div>
         </div>
-
       </section>
-
 
       {/* STACK */}
 
       <section className="aboutPageStackSection">
-
         <div className="aboutPageStackHeading">
           Built With Modern Web3 Stack
         </div>
 
         <div className="aboutPageStackTags">
-
           <span className="aboutPageStackTag">Ethereum</span>
           <span className="aboutPageStackTag">IPFS</span>
           <span className="aboutPageStackTag">Solidity</span>
           <span className="aboutPageStackTag">React</span>
           <span className="aboutPageStackTag">Node.js</span>
-
         </div>
-
       </section>
-
 
       {/* CTA */}
 
       <section className="aboutPageCtaContainer">
-
         <div className="aboutPageCtaHeading">
           Start Creating & Collecting NFTs Today
         </div>
 
-        <button className="aboutPageWalletButton">
-          Connect Wallet
-        </button>
-
+        <br />
+        <br />
+        <br />
+        <ConnectButton client={client} />
       </section>
-
     </div>
   );
 };

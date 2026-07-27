@@ -14,7 +14,7 @@ export default function GasFeeLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*4nX1cP5E8cM6d4Qh0S6b6Q.png"
+            src="whataregasfees.png"
             alt="NFT concept"
           />
         </div>
@@ -30,7 +30,7 @@ export default function GasFeeLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1400/1*JxQ2sJHqkRkNvztNFVQVwA.png"
+            src="gasfeesconcept.png"
             alt="Fungible vs Non fungible"
           />
         </div>
@@ -48,7 +48,7 @@ export default function GasFeeLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*vXj5QJ6N0iR8e2wX1QxkYg.png"
+            src="howgasfeeswork.png"
             alt="Blockchain NFT working"
           />
         </div>
@@ -65,7 +65,7 @@ export default function GasFeeLearn() {
 
         <div className="mintoraLearnImageBox">
           <img
-            src="https://miro.medium.com/v2/resize:fit:1200/1*QvXr8mQ6u7Y8G2dT6G7k7A.png"
+            src="gasfeesusecase.png"
             alt="NFT use cases"
           />
         </div>
@@ -77,6 +77,12 @@ export default function GasFeeLearn() {
           efficient. They prevent spam transactions, reward validators, and
           ensure that blockchain operations are processed reliably.
         </p>
+        <div className="mintoraLearnImageBox">
+          <img
+            src="whygasfeesmatters.png"
+            alt="NFT use cases"
+          />
+        </div>
       </div>
     </div>
   );
