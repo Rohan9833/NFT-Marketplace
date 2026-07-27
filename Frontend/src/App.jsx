@@ -15,6 +15,7 @@ import Createnft from "./Pages/Createnft";
 import Marketplace from "./Pages/Marketplace"
 import Assets from "./Pages/Wallet"
 import CreateToken from "./Pages/CreateToken";
+import MyTokens from "./Pages/MyTokens";
 import Stablecoin from "./Pages/Stablecoin.jsx"
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/marketplace" element={<Marketplace/>} />
         <Route path="/Wallet" element={<Assets/>} />
         <Route path="/createtoken" element={<CreateToken />} />
+        <Route path="/mytokens" element={<MyTokens />} />
       </Routes>
       <Footer />
     </>
