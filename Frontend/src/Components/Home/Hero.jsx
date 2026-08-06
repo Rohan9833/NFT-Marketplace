@@ -109,7 +109,7 @@ const Hero = () => {
           <div className="hero-flex">
             <div className="hero-image-box">
               <img
-                src={nfts[nfts.length - 1]?.metadata?.image_url?.replace(
+                src={nfts[nfts.length - 1]?.metadata?.image?.replace(
                   "ipfs://",
                   "https://ipfs.io/ipfs/",
                 )}
