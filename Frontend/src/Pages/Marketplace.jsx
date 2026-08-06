@@ -267,10 +267,11 @@ export default function Marketplace() {
     );
 
     // Filhaal test ke liye 1 token buy karenge
-    const amount = ethers.parseUnits("1", 18);
+    const amount = ethers.parseUnits("2", 18);
 
     // Price calculate
     const totalCost = item.price;
+    console.log(totalCost)
 
     const tx = await contract.buyTokens(
       item.listingId,

@@ -62,7 +62,7 @@ const Hero = () => {
         contract,
       });
       setnfts(nfts);
-
+      console.log(nfts[0]);
       console.log("Total NFTs:", supply.toString());
     }
     checkNFTs();
@@ -119,9 +119,12 @@ const Hero = () => {
             </div>
             <div className="hero-text-box">
               <h1 className="hero-title">
-                {nfts[nfts.length - 1]?.metadata?.name} <span className="check-icon">✓</span>
+                {nfts[nfts.length - 1]?.metadata?.name}{" "}
+                <span className="check-icon">✓</span>
               </h1>
-              <p className="hero-subtitle">{nfts[nfts.length - 1]?.metadata?.description}</p>
+              <p className="hero-subtitle">
+                {nfts[nfts.length - 1]?.metadata?.description}
+              </p>
 
               <div className="hero-stats-row">
                 <div className="stat-card">
