@@ -53,7 +53,7 @@ const Createnft = () => {
     formdata.append("NFTname", NFTname);
     formdata.append("NFTdescription", NFTdescription);
     formdata.append("userAddress", account.address);
-    // console.log("frontend 1",NFTdescription)
+
     const res = await axios.post(
       "http://localhost:3000/api/nft/createnft",
       formdata,
@@ -62,91 +62,6 @@ const Createnft = () => {
     setLoading(false);
   }
 
-  // async function MintNFT() {
-  //   try {
-  //     // ✅ Check karo wallet connected hai ya nahi
-  //     if (!account) {
-  //       alert("Pehle wallet connect karo!");
-  //       return;
-  //     }
-
-  //     if (!selectedFile) {
-  //       alert("Image select karo!");
-  //       return;
-  //     }
-
-  //     setLoading(true);
-
-  //     // ─── Step 1: Backend pe Pinata upload karo ───
-  //     const formdata = new FormData();
-  //     formdata.append("image", selectedFile);
-
-  //     const res = await axios.post(
-  //       "http://localhost:3000/api/nft/createnft",
-  //       formdata,
-  //     );
-  //     console.log(res.data._baseURIForTokens);
-  //     const baseURI = res.data._baseURIForTokens; // ← backend se baseURI aaya
-  //     console.log("BaseURI:", baseURI);
-
-  //     // ─── Step 2: Frontend se LazyMint karo ───
-  //     const transaction = lazyMint({
-  //       contract,
-  //       nfts: [
-  //         {
-  //           name: NFTname,
-  //           description: NFTdescription,
-  //           image: baseURI,
-  //         },
-  //       ],
-  //     });
-
-  //     // ─── Step 3: MetaMask popup aayega — user sign karega ───
-  //     const result = await sendTransaction({
-  //       transaction,
-  //       account, // ← user ka wallet
-  //     });
-
-  //     console.log("NFT Minted!", result);
-  //     alert("NFT ban gaya! 🎉");
-  //   } catch (error) {
-  //     console.log("Error:", error.message);
-  //     alert("Error: " + error.message);
-  //   } finally {
-  //     setLoading(false);
-  //     setTimeout(() => {}, 5000);
-  //     ClaimNFT();
-  //   }
-  // }
-
-  // async function ClaimNFT() {
-  //   try {
-  //     if (!account) {
-  //       alert("please connect your wallet");
-  //       return "Please connect account";
-  //     }
-  //     setLoading(true);
-
-  //     const transaction = claimTo({
-  //       contract,
-  //       to: account.address,
-  //       quantity: 1n,
-  //     });
-
-  //     const result = await sendTransaction({
-  //       transaction,
-  //       account,
-  //     });
-
-  //     console.log("NFT Claimed! 🎉", result);
-  //     alert("NFT claim ho gaya!");
-  //   } catch (error) {
-  //     console.error("Claim Error:", error.message);
-  //     alert("Error: " + error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
   async function loadMyNFTs() {
     try {
       if (!account) return;

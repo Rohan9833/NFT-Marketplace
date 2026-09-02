@@ -1,6 +1,12 @@
 import "../Style/Navbar.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useActiveAccount, ConnectButton } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+
+const client = createThirdwebClient({
+  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
+});
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +39,9 @@ const Navbar = () => {
         </div>
 
         <div className="nav-auth-desktop">
-          <Link to="/signup" className="btn-signup">Sign Up</Link>
-          <Link to="/login" className="btn-login">Login</Link>
+          {/* <Link to="/signup" className="btn-signup">Sign Up</Link>
+          <Link to="/login" className="btn-login">Login</Link> */}
+          <ConnectButton client={client} />
         </div>
 
       </div>
