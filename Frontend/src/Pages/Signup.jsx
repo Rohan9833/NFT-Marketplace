@@ -1,4 +1,4 @@
-// MintoraSignup.jsx
+
 import { useState } from "react";
 import "../Style/Signup.css";
 import { Link } from "react-router-dom";
