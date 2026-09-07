@@ -8,7 +8,7 @@ import GasFee from "./Pages/GasFee"
 import About from "./Pages/About";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
-import Learnnft from "./Pages/Learnnft";
+import Learnnft from "./Pages/Learnnft";   
 import Home from "./Pages/Home";
 import MintingGasfee from "./Pages/MintingNft";
 import Createnft from "./Pages/Createnft";
