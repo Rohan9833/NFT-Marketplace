@@ -35,7 +35,7 @@ function App() {
         <Route path="/marketplace" element={<Marketplace/>} />
         <Route path="/Wallet" element={<Assets/>} />
         <Route path="/createtoken" element={<CreateToken />} />
-        <Route path="/mytokens" element={<MyTokens />} />
+        <Route path="/mytokens" element={<MyTokens />} />    
       </Routes>
       <Footer />
     </>
