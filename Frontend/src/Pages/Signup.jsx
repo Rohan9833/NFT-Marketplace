@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "../Style/Signup.css";
 import { Link } from "react-router-dom";
@@ -26,10 +25,6 @@ export default function MintoraSignup() {
     console.log(result);
 
   }
-
-
-
-
   return (
     <div className="mintoraSignupMainWrapper">
       <div className="mintoraSignupCardContainer">
